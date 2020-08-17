@@ -12,9 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('rumah');
 });
 
-Auth::routes();
+Auth::routes(['verify'=> true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');

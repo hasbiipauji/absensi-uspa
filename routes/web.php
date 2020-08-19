@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('rumah');
-});
+Route::get('/', function () {return view('rumah');})->middleware('auth');
 
 Auth::routes(['verify'=> true]);
 

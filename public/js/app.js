@@ -49722,6 +49722,8 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./clock */ "./resources/js/clock.js");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -49788,6 +49790,30 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/clock.js":
+/*!*******************************!*\
+  !*** ./resources/js/clock.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function showTime() {
+  var date = new Date();
+  var detik = date.getSeconds();
+  var jam = date.getHours();
+  var menit = date.getMinutes();
+  var tahun = date.getFullYear();
+  var bulan = date.getMonth();
+  var hari = date.getDate();
+  var monthNames = ["January", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+  document.getElementById('date').innerHTML = hari + " " + monthNames[bulan] + " " + tahun;
+  document.getElementById('time').innerHTML = jam + " : " + menit;
+}
+
+setInterval(showTime, 1000);
 
 /***/ }),
 
@@ -49878,8 +49904,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\laravel\absensi-karyawan\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\laravel\absensi-karyawan\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\mandala\Documents\sttg\web\laravel\absensi-uspa\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\mandala\Documents\sttg\web\laravel\absensi-uspa\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

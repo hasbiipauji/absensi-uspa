@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Blank Page &mdash; Stisla</title>
+  <title>Absen &mdash; USPA MEDIA NUSANTARA</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap/css/bootstrap.min.css') }}">
@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
 <!-- Start GA -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+<script src="js/app.js"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -65,10 +66,35 @@
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1>Blank Page</h1>
+            <h1>Dashboard</h1>
           </div>
 
           <div class="section-body">
+            <div class="card text-white bg-primary">
+              <img class="card-img-top" src="holder.js/100px180/" alt="">
+              <div class="card-body">
+                <h4 class="card-title">{{ ucfirst(auth()->user()->name)  }}</h4>
+                <p class="card-text">jabatan</p>
+              </div>
+            </div>
+
+            <div class="card ">
+              <div class="card-body">
+                 
+                  <div class=" text-lg text-center h2" id="date"></div>
+                  <div class=" text-lg text-center h1" id="time"></div>
+                
+              </div>
+            </div>
+            
+            <div class="card text-left text-white bg-primary">
+              <img class="card-img-top" src="holder.js/100px180/" alt="">
+              <div class="card-body">
+                <h4 class="card-title text-center">Anda belum absen hari ini </h4>
+                <p class="card-text text-center">silahkan absen </p>
+              </div>
+            </div>
+
           </div>
         </section>
       </div>

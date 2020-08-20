@@ -6,6 +6,8 @@
 
 require('./bootstrap');
 
+require('./clock');
+
 window.Vue = require('vue');
 
 /**

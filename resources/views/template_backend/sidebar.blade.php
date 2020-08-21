@@ -10,11 +10,11 @@
         <li class="menu-header">Dashboard</li>
         <hr>
         <li class="dropdown">
-          <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+          <a href=" {{ url('/home') }} " class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
         </li>
         
         <li class="dropdown">
-          <a href="#" class="nav-link"><i class="fas fa-file-alt"></i><span>Absensi</span></a>
+          <a href="url('/absensi')" class="nav-link"><i class="fas fa-file-alt"></i><span>Absensi</span></a>
         </li>
         
         <li class="dropdown">

@@ -1,5 +1,7 @@
 <?php
 
+use RealRashid\SweetAlert\Facades\Alert;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,7 +13,11 @@
 |
 */
 
-Route::get('/', function () {return view('rumah');})->middleware('auth');
+Route::get('/', function () {
+    //Alert::success('Success Title', 'Login Berhasil');
+
+    return view('template_backend.master');
+})->middleware('auth');
 
 Auth::routes(['verify'=> true]);
 

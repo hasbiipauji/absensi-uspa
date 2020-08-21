@@ -4,10 +4,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
                 <div class="card-header d-flex align-items-lg-center justify-content-between">
                     <div>
-                        Silahkan Verifikasi email anda
+                        Silahkan cek email anda
                     </div>
                     <div>
                         {{ Auth::user()->email }}
@@ -15,12 +15,13 @@
                 </div>
 
                 <div class="card-body">
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }},
+                    {{ __('Sebelum melanjutkan, periksa email anda untuk verifikasi.') }}
+                    {{ __('Jika anda belum menerima email') }},
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
+                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('klik disini') }}</button>.
                     </form>
+
                 </div>
             </div>
         </div>

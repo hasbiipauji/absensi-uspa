@@ -1,34 +1,44 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
       <div class="sidebar-brand">
-        <a href="index.html">USPA MEDIA NUSANTARA</a>
+        <a href="index.html">Stisla</a>
       </div>
       <div class="sidebar-brand sidebar-brand-sm">
         <a href="index.html">St</a>
       </div>
       <ul class="sidebar-menu">
         <li class="menu-header">Dashboard</li>
-        <hr>
+        <li class=active><a class="nav-link" href="#"><i class="fas fa-desktop"></i> <span>Dashboard</span></a></li>
+
+        <li class="menu-header">Starter</li>
         <li class="dropdown">
-          <a href=" {{ url('/home') }} " class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
-        </li>
-        
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-address-book"></i> <span>Absensi</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="nav-link" href="">List Post</a></li>
+              <li><a class="nav-link" href="">List Post Trash</a></li>
+            </ul>
+          </li>
+
         <li class="dropdown">
-          <a href=" {{ url('/absensi') }} " class="nav-link"><i class="fas fa-file-alt"></i><span>Absensi</span></a>
-        </li>
-        
-        <li class="dropdown">
-          <a href="#" class="nav-link"><i class="fas fa-file-archive"></i><span>Struktur</span></a>
-        </li>
-        
-        <li class="dropdown">
-          <a href="#" class="nav-link"><i class="fas fa-info"></i><span>Alur Kerja</span></a>
+          <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cubes"></i> <span>Struktur</span></a>
+          <ul class="dropdown-menu">
+            <li><a class="nav-link" href="">List Kategori</a></li>
+          </ul>
         </li>
 
-        <li class="dropdown text-blue">
-          <a href="#" class="nav-link text-blue"><i class="fas fa-receipt"></i><span class=" text-green">Report</span></a>
-        </li>
+        <li class="dropdown">
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-tags"></i> <span>Alur Kerja</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="nav-link" href="">List Tag</a></li>
+            </ul>
+         </li>
 
-      </ul>
-    </aside>
-  </div>
+         <li class="dropdown">
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user"></i> <span>Report</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="nav-link" href="">List User</a></li>
+            </ul>
+         </li>
+      </aside>
+   </div>
+

@@ -4,9 +4,9 @@
 <section class="section">
     <div class="container mt-5">
       <div class="row">
-        <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+        <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2 shadow-lg p-3 mb-5 bg-white rounded">
           <div class="login-brand">
-            <img src="{{ asset('asset/img/uspa.png') }}" alt="logo" width="100">
+            <img src="{{ asset('assets/img/uspa.png') }}" alt="logo" width="65" >
           </div>
 
           <div class="card card-primary">
@@ -73,6 +73,8 @@
                           </button>
                       </div>
                   </div>
+                  <br>
+                  <br>
                   <div class="form-group">
                     <a class="btn btn-link" href="{{ route('login') }}">Sudah punya akun?</a>
                   </div>

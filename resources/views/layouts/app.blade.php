@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        @if (Auth::check() && !Auth::user()->email_verified_at)
+        {{-- @if (Auth::check() && !Auth::user()->email_verified_at)
          <div class="alert alert-danger mb-n1 text-center" role="alert">
             Anda belum melakukan verifikasi email,
             <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
@@ -29,12 +29,12 @@
                 <button type="submit" class="text-danger btn btn-link p-0 m-0 align-baseline">{{ __('verifikasi terlebih dahulu') }}</button>.
             </form>
         </div>
-        @endif
+        @endif --}}
 
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm shadow p-3 mb-5 bg-white rounded">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand ">
+
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -51,11 +51,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link btn btn-light" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link btn btn-light" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -98,5 +98,6 @@
             @yield('content')
         </main>
     </div>
+    @include('sweetalert::alert')
 </body>
 </html>

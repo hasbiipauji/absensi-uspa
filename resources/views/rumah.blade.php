@@ -1,6 +1,6 @@
 @extends('template_backend.master')
 
-@section('section')
+@section('content')
 
 <div class="card-body">
     @if (session('status'))

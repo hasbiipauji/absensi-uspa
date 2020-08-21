@@ -8,13 +8,37 @@
       </div>
       <ul class="sidebar-menu">
         <li class="menu-header">Dashboard</li>
+        <li class=active><a class="nav-link" href="#"><i class="fas fa-desktop"></i> <span>Dashboard</span></a></li>
+
+        <li class="menu-header">Starter</li>
         <li class="dropdown">
-          <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-address-book"></i> <span>Absensi</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="nav-link" href="">List Post</a></li>
+              <li><a class="nav-link" href="">List Post Trash</a></li>
+            </ul>
+          </li>
+
+        <li class="dropdown">
+          <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cubes"></i> <span>Struktur</span></a>
           <ul class="dropdown-menu">
-            <li><a class="nav-link" href="index-0.html">General Dashboard</a></li>
-            <li><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
+            <li><a class="nav-link" href="">List Kategori</a></li>
           </ul>
         </li>
-      </ul>
-    </aside>
-  </div>
+
+        <li class="dropdown">
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-tags"></i> <span>Alur Kerja</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="nav-link" href="">List Tag</a></li>
+            </ul>
+         </li>
+
+         <li class="dropdown">
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user"></i> <span>Report</span></a>
+            <ul class="dropdown-menu">
+              <li><a class="nav-link" href="">List User</a></li>
+            </ul>
+         </li>
+      </aside>
+   </div>
+

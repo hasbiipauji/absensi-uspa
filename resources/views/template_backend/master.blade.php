@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="{{ asset('assets/modules/fontawesome/css/all.min.css') }}">
 
   <!-- CSS Libraries -->
+  <script src="js/app.js"></script>
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -68,8 +69,37 @@
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1>Blank Page</h1>
+            <h1>Dashboard</h1>
           </div>
+
+          <div class="section-body">
+            <div class="card text-white bg-primary">
+              <img class="card-img-top" src="holder.js/100px180/" alt="">
+              <div class="card-body">
+                <h4 class="card-title">{{ ucfirst(auth()->user()->name)  }}</h4>
+                <p class="card-text">jabatan</p>
+              </div>
+            </div>
+
+            <div class="card ">
+              <div class="card-body">
+                 
+                  <div class=" text-lg text-center h2" id="date"></div>
+                  <div class=" text-lg text-center h1" id="time"></div>
+                
+              </div>
+            </div>
+            
+            <div class="card text-left text-white bg-primary">
+              <img class="card-img-top" src="holder.js/100px180/" alt="">
+              <div class="card-body">
+                <h4 class="card-title text-center">Anda belum absen hari ini </h4>
+                <p class="card-text text-center">silahkan absen </p>
+              </div>
+            </div>
+
+          </div>
+
           @yield('content')
           <div class="section-body">
           </div>

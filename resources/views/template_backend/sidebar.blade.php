@@ -14,7 +14,7 @@
         </li>
         
         <li class="dropdown">
-          <a href="url('/absensi')" class="nav-link"><i class="fas fa-file-alt"></i><span>Absensi</span></a>
+          <a href=" {{ url('/absensi') }} " class="nav-link"><i class="fas fa-file-alt"></i><span>Absensi</span></a>
         </li>
         
         <li class="dropdown">

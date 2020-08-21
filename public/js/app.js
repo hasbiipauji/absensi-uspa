@@ -49800,20 +49800,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-function showTime() {
-  var date = new Date();
-  var detik = date.getSeconds();
-  var jam = date.getHours();
-  var menit = date.getMinutes();
-  var tahun = date.getFullYear();
-  var bulan = date.getMonth();
-  var hari = date.getDate();
-  var monthNames = ["January", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-  document.getElementById('date').innerHTML = hari + " " + monthNames[bulan] + " " + tahun;
-  document.getElementById('time').innerHTML = jam + " : " + menit;
-}
-
-setInterval(showTime, 1000);
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'C:\\Users\\mandala\\Documents\\sttg\\web\\laravel\\absensi-uspa\\resources\\js\\clockk.js'");
 
 /***/ }),
 

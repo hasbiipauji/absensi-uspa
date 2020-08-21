@@ -74,6 +74,7 @@
                       </div>
                   </div>
                   <br>
+                  <br>
                   <div class="form-group">
                     <a class="btn btn-link" href="{{ route('login') }}">Sudah punya akun?</a>
                   </div>

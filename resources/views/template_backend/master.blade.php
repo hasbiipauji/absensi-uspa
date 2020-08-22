@@ -45,7 +45,7 @@
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <img alt="image" src="assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
             <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth::user()->name }}</div></a>
-            <div class="dropdown-menu dropdown-menu-right" >
+            <div class="dropdown-menu dropanim dropdown-menu-right" >
                 <a href="features-profile.html" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profile
                 </a>
@@ -95,8 +95,8 @@
             <div class="card text-left text-white bg-primary">
               <img class="card-img-top" src="holder.js/100px180/" alt="">
               <div class="card-body">
-                <h4 class="card-title text-center">Anda belum absen hari ini </h4>
-                <p class="card-text text-center">silahkan absen </p>
+                <h4 class="card-title text-center">Anda belum mengisi kehadiran hari ini </h4>
+                <p class="card-text text-center">silahkan isi kehadiran disini   </p>
               </div>
             </div>
 

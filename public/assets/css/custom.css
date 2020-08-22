@@ -7,5 +7,5 @@
 
 /*# sourceMappingURL=custom.css.map */
 
-.dropdown-menu {display: block;visibility: hidden;opacity:0;transform: translateY(50px);transition:.3s ease all;}
-.dropdown-menu.show {display: block;visibility: visible;opacity:1;transform: translateY(0px);transition:.3s ease all;}
+.dropanim {display: block;visibility: hidden;opacity:0;transform: translateX(50px);transition:.3s ease all;}
+.dropanim.show {display: block;visibility: visible;opacity:1;transform: translateY(0px);transition:.3s ease all;}

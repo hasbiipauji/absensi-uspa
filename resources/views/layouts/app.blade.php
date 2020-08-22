@@ -98,6 +98,6 @@
             @yield('content')
         </main>
     </div>
-    @include('sweetalert::alert')
+    {{-- @include('sweetalert::alert') --}}
 </body>
 </html>

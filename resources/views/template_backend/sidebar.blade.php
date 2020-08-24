@@ -12,10 +12,10 @@
 
         <li class="menu-header">Starter</li>
         <li class="dropdown">
-            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-address-book"></i> <span>Absensi</span></a>
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-address-book"></i> <span>Data Pegawai</span></a>
             <ul class="dropdown-menu">
-              <li><a class="nav-link" href="">List Post</a></li>
-              <li><a class="nav-link" href="">List Post Trash</a></li>
+              <li><a class="nav-link" href="{{ route('pegawai.index') }}">List Pegawai</a></li>
+              <li><a class="nav-link" href="{{ route('jabatan.index') }}">List Jabatan</a></li>
             </ul>
           </li>
 

@@ -20,7 +20,14 @@
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
                         <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('klik disini') }}</button>.
+
                     </form>
+                    <br>
+
+
+                </div>
+                <div>
+                    <a href="{{ route('home') }}" style="float: right"><button type="button" class="btn btn-primary">Halaman Utama</button></a>
 
                 </div>
             </div>

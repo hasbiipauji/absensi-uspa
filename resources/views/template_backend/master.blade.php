@@ -12,7 +12,7 @@
 
   <!-- CSS Libraries -->
   <script src="js/app.js"></script>
-  
+
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
@@ -43,8 +43,8 @@
         </form>
         <ul class="navbar-nav navbar-right">
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            <img alt="image" src="assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-            <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth::user()->name }}</div></a>
+            <img alt="image" src="{{ asset('assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
+            <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth::user()->name }} </div></a>
             <div class="dropdown-menu dropanim dropdown-menu-right" >
                 <a href="features-profile.html" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profile
@@ -65,40 +65,41 @@
         </ul>
       </nav>
 
+
       @include('template_backend.sidebar')
 
       <!-- Main Content -->
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1>Dashboard</h1>
+            <h1>@yield('sub-judul')</h1>
           </div>
 
           <div class="section-body">
             <div class="card text-white bg-primary">
               <img class="card-img-top" src="holder.js/100px180/" alt="">
-              <div class="card-body">
+              {{-- <div class="card-body">
                 <h4 class="card-title">{{ ucfirst(auth()->user()->name)  }}</h4>
                 <p class="card-text">jabatan</p>
+              </div> --}}
+            </div>
+
+            {{-- <div class="card ">
+              <div class="card-body">
+
+                  <div class=" text-lg text-center h2" id="date"></div>
+                  <div class=" text-lg text-center h1" id="time"></div>
+
               </div>
             </div>
 
-            <div class="card ">
-              <div class="card-body">
-                 
-                  <div class=" text-lg text-center h2" id="date"></div>
-                  <div class=" text-lg text-center h1" id="time"></div>
-                
-              </div>
-            </div>
-            
             <div class="card text-left text-white bg-primary">
               <img class="card-img-top" src="holder.js/100px180/" alt="">
               <div class="card-body">
                 <h4 class="card-title text-center">Anda belum mengisi kehadiran hari ini </h4>
                 <p class="card-text text-center">silahkan isi kehadiran disini   </p>
               </div>
-            </div>
+            </div> --}}
 
           </div>
 

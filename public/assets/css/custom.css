@@ -1,0 +1,39 @@
+/**
+ *
+ * You can write your CSS code here, DO NOT touch the default JavaScript file
+ * because it will make it harder for you to update.
+ * 
+ */
+
+/*# sourceMappingURL=custom.css.map */
+
+.dropanim {display: block;visibility: hidden;opacity:0;transform: translateX(-50px);transition:.3s ease all;}
+.dropanim.show {display: block;visibility: visible;opacity:1;transform: translateY(0px);transition:.3s ease all;}
+
+#fixedsidebar{position: fixed;bottom: 0;right: 0;}
+
+#label_absen_1{height: 5pc; width:6pc; text-align: center;
+                vertical-align: middle;
+                line-height: 4pc;  
+}
+
+#labellocation{
+    height: 5pc;
+    text-align: center;
+                vertical-align: middle;
+                line-height: 4pc;  
+                
+}
+
+.fixed {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 320px;
+    height: 50px;
+    background: red;
+    -webkit-backface-visibility: hidden;
+    /*--^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Most Important*/
+  }
+
+

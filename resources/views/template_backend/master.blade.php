@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="{{ asset('assets/modules/fontawesome/css/all.min.css') }}">
 
   <!-- CSS Libraries -->
-  <script src="js/app.js"></script>
 
 
   <!-- Template CSS -->

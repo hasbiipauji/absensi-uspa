@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Pegawai;
+use App\Jabatan;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -37,7 +38,9 @@ class PegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+
     }
 
     /**
@@ -59,7 +62,11 @@ class PegawaiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findorfail($id);
+
+        $jabatan = Jabatan::paginate(10);
+
+        return view('admin.pegawai.edit', compact('user', 'jabatan'));
     }
 
     /**
@@ -71,7 +78,18 @@ class PegawaiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'jabatan' => 'required'
+        ]);
+
+        $user_data =[
+            'name' => $request->name,
+            'jabatan' => $request->jabatan
+        ];
+
+        User::whereId($id)->update($user_data);
+
+        return redirect()->route('pegawai.index')->with('success', 'data berhasil diedit');
     }
 
     /**

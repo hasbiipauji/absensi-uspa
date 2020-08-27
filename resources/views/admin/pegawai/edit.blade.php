@@ -19,18 +19,22 @@
     </div>
 @endif
 
-<form action="" method="post">
+<form action="{{ route('pegawai.update', $user->id) }}" method="post">
 @csrf
-
-
+@method('patch')
     <div class="form-group col-sm-4">
         <label>Nama Pegawai</label>
-        <input type="text" class="form-control" name="nama_pegawai">
+        <input type="text" class="form-control" name="name" value="{{ $user->name }}">
     </div>
 
     <div class="form-group col-sm-4">
         <label>Jabatan</label>
-        <select class="form-control" name="jabatan_id"></select>
+        <select class="form-control" name="jabatan">
+            <option value="">-- Pilih Jabatan --</option>
+            @foreach ($jabatan as $itemJabatan)
+                <option value="{{ $itemJabatan->jabatan }}">{{ $itemJabatan->jabatan }}</option>
+            @endforeach
+        </select>
     </div>
 
     <div class="form-group col-sm-4">

@@ -11,8 +11,9 @@
     <thead>
         <tr>
             <th>No</th>
-            <th>id pegawai</th>
+
             <th>Nama Pegawai</th>
+            <th>email</th>
             <th>jabatan</th>
             <th>Action</th>
         </tr>
@@ -24,9 +25,10 @@
             {{-- ini untuk menampilkan nomor --}}
             <td>{{ $result + $pegawai->firstitem() }}</td>
             {{-- end --}}
+
             <td>{{ $hasil->name }}</td>
-            <td></td>
             <td>{{ $hasil->email }}</td>
+            <td>{{ $hasil->jabatan }}</td>
             <td>
                 <form action="{{ route('pegawai.destroy', $hasil->id) }}" method="post">
                     @csrf

@@ -27,7 +27,7 @@ class AbsensiController extends Controller
      */
     public function create()
     {
-        $user_absen_status = auth()->user()->absensis()->whereDate('created_at', date('Y-m-d'))->get();;
+        $user_absen_status = auth()->user()->absensis()->whereDate('created_at', date('Y-m-d'))->get();
         $uid = auth()->user()->id;
         $usercurdate = $user_absen_status->pluck('user_id')->get(0);
           

@@ -23,6 +23,10 @@ Auth::routes(['verify'=> true]);
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
+Route::get('/export', 'ExportController@index');
+Route::get('/export/export_excel', 'ExportController@export_excel');
+
+
 Route::resource('/jabatan', 'JabatanController');
 Route::resource('/pegawai', 'PegawaiController');
 

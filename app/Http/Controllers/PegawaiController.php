@@ -29,9 +29,12 @@ class PegawaiController extends Controller
 
         $pegawai = User::paginate(10);
 
-        //return view('admin.pegawai.pdf', compact('pegawai'));
+        //$pdf = PDF::loadView('admin.pegawai.pdf', $pegawai);
 
-        $pdf = PDF::loadView('admin.pegawai.pdf', $pegawai);
+        $pdf = PDF::loadView('admin.pegawai.pdf', [
+            'pegawai' => pegawai::paginate(10)
+            ]);
+
         return $pdf->download('invoice.pdf');
     }
 

@@ -40,4 +40,5 @@ Route::get('/geo', function () {
     return view('geocode');
 });
 
-Route::get('/laporan-pdf', 'PegawaiController@pdf');
+Route::get('/pdf', 'PdfController@showPdf');
+Route::get('/laporan-pdf', 'PdfController@createPDF');

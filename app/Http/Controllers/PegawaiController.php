@@ -21,23 +21,6 @@ class PegawaiController extends Controller
         return view('admin.pegawai.index', compact('pegawai'));
     }
 
-    public function pdf()
-    {
-        // $data['judul'] = 'laporan pdf';
-        // $data['nama'] = 'ini nama';
-        // $data['alamat'] = 'ini alamat';
-
-        $pegawai = User::paginate(10);
-
-        //$pdf = PDF::loadView('admin.pegawai.pdf', $pegawai);
-
-        $pdf = PDF::loadView('admin.pegawai.pdf', [
-            'pegawai' => pegawai::paginate(10)
-            ]);
-
-        return $pdf->download('invoice.pdf');
-    }
-
     /**
      * Show the form for creating a new resource.
      *

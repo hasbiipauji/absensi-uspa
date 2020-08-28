@@ -25,3 +25,17 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 
 Route::resource('/jabatan', 'JabatanController');
 Route::resource('/pegawai', 'PegawaiController');
+
+Route::resource('/absensi', 'AbsensiController')->middleware('auth');
+
+// Route::get('/location', function ()
+// {
+//     return redirect('/');
+// } );
+
+Route::get('/location/{id}', 'Locationcontroller@show' );
+
+
+Route::get('/geo', function () {
+    return view('geocode');   
+});

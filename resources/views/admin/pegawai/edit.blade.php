@@ -1,5 +1,5 @@
 @extends('template_backend.master')
-@section('sub-judul', 'tambah pegawai')
+@section('sub-judul', 'Edit Pegawai')
 
 @section('content')
 
@@ -38,7 +38,7 @@
     </div>
 
     <div class="form-group col-sm-4">
-        <button class="btn btn-primary btn-">Tambah Pegawai</button>
+        <button class="btn btn-primary btn-">Edit Pegawai</button>
     </div>
 </form>
 

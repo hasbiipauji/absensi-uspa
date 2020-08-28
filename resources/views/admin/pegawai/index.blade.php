@@ -3,7 +3,8 @@
 
 @section('content')
 
-<a href="{{ route('pegawai.create') }}" class="btn btn-info btn-sm">Tambah Pegawai</a>
+<a href="" class="btn btn-primary btn-sm">Cetak pdf</a>
+<a href="{{ route('pegawai.create') }}" class="btn btn-info btn-sm" style="float: right">Tambah Pegawai</a>
 <br>
 <br>
 

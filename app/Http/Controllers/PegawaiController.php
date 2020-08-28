@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Pegawai;
 use App\Jabatan;
 use App\User;
+use PDF;
 use Illuminate\Http\Request;
 
 class PegawaiController extends Controller
@@ -18,6 +19,20 @@ class PegawaiController extends Controller
     {
         $pegawai = User::paginate(10);
         return view('admin.pegawai.index', compact('pegawai'));
+    }
+
+    public function pdf()
+    {
+        // $data['judul'] = 'laporan pdf';
+        // $data['nama'] = 'ini nama';
+        // $data['alamat'] = 'ini alamat';
+
+        $pegawai = User::paginate(10);
+
+        //return view('admin.pegawai.pdf', compact('pegawai'));
+
+        $pdf = PDF::loadView('admin.pegawai.pdf', $pegawai);
+        return $pdf->download('invoice.pdf');
     }
 
     /**
@@ -100,6 +115,7 @@ class PegawaiController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
+
 }

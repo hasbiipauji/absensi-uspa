@@ -3,7 +3,7 @@
 
 @section('content')
 
-<a href="" class="btn btn-primary btn-sm">Cetak pdf</a>
+{{-- <a href="{{ route('print.pdf') }}" class="btn btn-primary btn-sm">Cetak pdf</a> --}}
 <a href="{{ route('pegawai.create') }}" class="btn btn-info btn-sm" style="float: right">Tambah Pegawai</a>
 <br>
 <br>

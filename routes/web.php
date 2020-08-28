@@ -37,5 +37,7 @@ Route::get('/location/{id}', 'Locationcontroller@show' );
 
 
 Route::get('/geo', function () {
-    return view('geocode');   
+    return view('geocode');
 });
+
+Route::get('/laporan-pdf', 'PegawaiController@pdf');

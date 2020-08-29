@@ -1,10 +1,13 @@
 @extends('template_backend.master')
-@section('sub-judul', 'Pegawai')
+@section('sub-judul', 'List Pegawai')
 
 @section('content')
 
 {{-- <a href="{{ route('print.pdf') }}" class="btn btn-primary btn-sm">Cetak pdf</a> --}}
-<a href="{{ route('pegawai.create') }}" class="btn btn-info btn-sm" style="float: right">Tambah Pegawai</a>
+
+<a class="btn btn-primary" style="float: right" href="{{ route('pdf') }}">Export to PDF</a>
+<a href="{{ route('pegawai.create') }}" class="btn btn-info btn-sm">Tambah Pegawai</a>
+
 <br>
 <br>
 
@@ -12,10 +15,9 @@
     <thead>
         <tr>
             <th>No</th>
-
             <th>Nama Pegawai</th>
-            <th>email</th>
-            <th>jabatan</th>
+            <th>Email</th>
+            <th>Jabatan</th>
             <th>Action</th>
         </tr>
     </thead>

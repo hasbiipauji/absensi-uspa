@@ -41,4 +41,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Absensi::class);
     }
+    public function jabatan(){
+        return $this->belongsTo('App\jabatan');
+    }
 }

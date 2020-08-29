@@ -9,7 +9,7 @@ class Pegawai extends Model
     protected $table = 'pegawai';
     protected $fillable = ['pegawai'];
 
-    public function  jabatan(){
+    public function jabatan(){
         return $this->belongsTo('App\jabatan');
     }
 }

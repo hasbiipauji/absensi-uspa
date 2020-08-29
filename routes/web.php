@@ -35,10 +35,12 @@ Route::resource('/absensi', 'AbsensiController')->middleware('auth');
 
 Route::get('/location/{id}', 'Locationcontroller@show' );
 
-
 Route::get('/geo', function () {
     return view('geocode');
 });
 
-Route::get('/pdf', 'PdfController@showPdf');
-Route::get('/laporan-pdf', 'PdfController@createPDF');
+//Route::get('/pdf', 'PdfController@showPdf');
+// Route dibawah untuk cetak pdf pegawai
+Route::get('/laporan-pdf', 'PdfController@createPDF')->name('pdf');
+
+Route::get('/pdf-absensi', 'PdfAbsensiController@createPDF')->name('pdf-absensi');

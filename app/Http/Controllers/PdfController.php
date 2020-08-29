@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Jabatan;
 use App\user;
 use PDF;
 
@@ -21,7 +22,7 @@ class PdfController extends Controller
 
         //share data to view
         view()->share('pegawai', $data);
-        $pdf = PDF::loadView('admin.pegawai.pdf_view', $data);
+        $pdf = PDF::loadView('admin.pegawai.pdf', $data);
 
         return $pdf->download('pdf_file.pdf');
     }

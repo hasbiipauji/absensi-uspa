@@ -30,18 +30,18 @@ class AbsensiController extends Controller
         $user_absen_status = auth()->user()->absensis()->whereDate('created_at', date('Y-m-d'))->get();;
         $uid = auth()->user()->id;
         $usercurdate = $user_absen_status->pluck('user_id')->get(0);
-          
-        
+
+
         if ($usercurdate==$uid) {
-            // dd($usercurdate, $user_absen_status , $uid , $usercurdate==$uid);     
+            // dd($usercurdate, $user_absen_status , $uid , $usercurdate==$uid);
             return redirect('absensi');
         } else {
             return view('absensi.create');
-        
-        }
-        
 
-       
+        }
+
+
+
     }
 
     /**
@@ -57,7 +57,7 @@ class AbsensiController extends Controller
         ]);
 
         auth()->user()->absensis()->create($request->all());
-        
+
 
         return redirect('/absensi')->with('success', 'Absensi berhasil');
         }

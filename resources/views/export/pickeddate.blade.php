@@ -9,7 +9,19 @@
     </div>
 @endif
 
-<a href="/export/export_excel" class="btn btn-info btn-sm">export excel</a>
+<form action="{{ route('export.export_excel_pilihan') }}" method="post">
+
+    @csrf
+
+    <input type="hidden" id="lat" name="dari" value="{{ $dari }}">
+    <input type="hidden" id="lat" name="sampai" value="{{ $sampai }}">
+
+    {{-- <a href="/export/export_excel_pilihan" class="btn btn-info btn-sm">export excel</a> --}}
+    <button type="submit" class="btn btn-primary">Export excel</button>
+
+
+</form>
+
 <br>
 <br>
 <div style="overflow-x: auto">
@@ -17,7 +29,7 @@
         style="width: 100% ; max-width:100%; white-space:nowrap;">
         <thead>
             <tr>
-                <th>No</th>
+                <th>No </th>
                 <th>nama</th>
                 <th>status</th>
                 <th>keterangan</th>
@@ -26,7 +38,6 @@
                 <th>longitude</th>
                 <th>latitude</th>
                 <th>map location</th>
-                <th>Action</th>
             </tr>
         </thead>
 
@@ -64,17 +75,7 @@
                         <td></td>
                     @endif
 
-                    <td>
-                        <form action="{{ route('absensi.destroy', $hasil->id) }}"
-                            method="post">
-                            @csrf
-                            @method('delete')
-                            <a href="{{ route('absensi.edit', $hasil->id) }}"
-                                class="btn btn-primary btn-sm">Edit</a>
-                            <button type="submit" class="btn btn-danger btn-sm"
-                                onclick="return confirm('Yakin ingin menghapus {{ $hasil->absensi }}">Delete</button>
-                        </form>
-                    </td>
+                   
 
                 </tr>
             @endforeach

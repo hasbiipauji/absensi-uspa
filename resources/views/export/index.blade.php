@@ -82,7 +82,6 @@
                 <th>longitude</th>
                 <th>latitude</th>
                 <th>map location</th>
-                <th>Action</th>
             </tr>
         </thead>
 
@@ -120,17 +119,6 @@
                         <td></td>
                     @endif
 
-                    <td>
-                        <form action="{{ route('absensi.destroy', $hasil->id) }}"
-                            method="post">
-                            @csrf
-                            @method('delete')
-                            <a href="{{ route('absensi.edit', $hasil->id) }}"
-                                class="btn btn-primary btn-sm">Edit</a>
-                            <button type="submit" class="btn btn-danger btn-sm"
-                                onclick="return confirm('Yakin ingin menghapus {{ $hasil->absensi }}">Delete</button>
-                        </form>
-                    </td>
 
                 </tr>
             @endforeach
@@ -140,6 +128,7 @@
 
 {{-- menampilkan pagination atau nomor halaman --}}
 {{ $absensi->links() }}
+
 <script type="text/javascript">
     $('.date').datepicker({
 

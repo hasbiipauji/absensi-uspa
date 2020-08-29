@@ -14,26 +14,43 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 use Maatwebsite\Excel\Concerns\Exportable;
 
 
-class AbsensiExport implements FromView , WithDrawings , ShouldAutoSize 
+class AbsensiExport implements FromView, WithDrawings, ShouldAutoSize
 {
     /**
-    * @return \Illuminate\Support\Collection
-    */
+     * @return \Illuminate\Support\Collection
+     */
 
     use Exportable;
 
-    public function forYear(int $year)
-        {
-            $this->year = $year;
-            
-            return $this;
-        }
+    public function simpanDari(string $dataDari)
+    {
+        $this->dataDari = $dataDari;
+
+        return $this;
+    }
+    public function simpanSampai(string $dataSampai)
+    {
+        $this->dataSampai = $dataSampai;
+
+        return $this;
+    }
+
 
     public function view(): View
     {
-        return view('export.absen', [
-            'absens' => Absensi::whereDate('created_at', date('Y-m-'.$this->year))->get()
-        ]);
+        $idCurrentUser = auth()->user()->id;
+        isset($this->dataDari) ?
+            $pilihan = view('export.absen', [
+                'absens' => Absensi::where('user_id', $idCurrentUser)->whereBetween('created_at', [$this->dataDari, $this->dataSampai])->get()
+            ]) :
+
+            $nopilihan =  view('export.absen', [
+                'absens' => Absensi::where('user_id', $idCurrentUser)->get()
+            ]);
+
+        // isset($pilihan) ? dd($pilihan) : dd($nopilihan);
+
+        return  $pilihan ?? $nopilihan;
     }
 
     public function drawings()
@@ -47,8 +64,6 @@ class AbsensiExport implements FromView , WithDrawings , ShouldAutoSize
 
         return $drawing;
     }
-
-    
 }
 
 // class AbsensiExport implements FromQuery

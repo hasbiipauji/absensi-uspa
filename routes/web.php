@@ -14,7 +14,6 @@ use RealRashid\SweetAlert\Facades\Alert;
 */
 
 Route::get('/', function () {
-    //Alert::success('Success Title', 'Login Berhasil');
 
     return view('template_backend.master');
 })->middleware('auth');
@@ -26,6 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 Route::get('/export', 'ExportController@index');
 Route::get('/export/export_excel', 'ExportController@export_excel');
 Route::post('/export/pilihan', 'ExportController@pilihan')->name('export.pilihan');
+Route::POST('/export/export_excel_pilihan', 'ExportController@export_excel_pilihan')->name('export.export_excel_pilihan');
 
 
 
@@ -40,8 +40,3 @@ Route::resource('/absensi', 'AbsensiController')->middleware('auth');
 // } );
 
 Route::get('/location/{id}', 'Locationcontroller@show');
-
-
-Route::get('/geo', function () {
-    return view('geocode');
-});

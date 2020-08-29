@@ -15,7 +15,12 @@ class AbsensiController extends Controller
      */
     public function index()
     {
-        $absensi = Absensi::latest()->paginate(10);
+        $from = date('Y-m-d');
+        $to = date('Y-m-d');
+        $to = date('Y-m-d', strtotime("+1 day", strtotime($to)));
+        $absensi = Absensi::latest()->whereBetween('created_at', [$from, $to])->paginate(10);
+
+
         return view('absensi.index', compact('absensi'));
         // return redirect('absensi/create');
     }
@@ -30,18 +35,14 @@ class AbsensiController extends Controller
         $user_absen_status = auth()->user()->absensis()->whereDate('created_at', date('Y-m-d'))->get();
         $uid = auth()->user()->id;
         $usercurdate = $user_absen_status->pluck('user_id')->get(0);
-          
-        
-        if ($usercurdate==$uid) {
+
+
+        if ($usercurdate == $uid) {
             // dd($usercurdate, $user_absen_status , $uid , $usercurdate==$uid);     
             return redirect('absensi');
         } else {
             return view('absensi.create');
-        
         }
-        
-
-       
     }
 
     /**
@@ -57,10 +58,10 @@ class AbsensiController extends Controller
         ]);
 
         auth()->user()->absensis()->create($request->all());
-        
+
 
         return redirect('/absensi')->with('success', 'Absensi berhasil');
-        }
+    }
 
     /**
      * Display the specified resource.
@@ -95,15 +96,18 @@ class AbsensiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'absensi' => 'required'
-        ]);
 
-        $absensi_data =[
-            'absensi' => $request->absensi
+
+        $absensi_data = [
+            'status' => $request->status,
+            'alamat' => $request->alamat,
+            'keterangan' => $request->keterangan,
+
         ];
 
-        Absensi::whereId($id)->update($absensi_data);
+
+        auth()->user()->absensis()->update($absensi_data);
+
 
         return redirect()->route('absensi.index')->with('success', 'data berhasil diedit');
     }
@@ -122,4 +126,3 @@ class AbsensiController extends Controller
         return redirect()->back()->with('success', 'data berhasil dihapus');
     }
 }
-

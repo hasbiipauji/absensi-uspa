@@ -9,63 +9,7 @@
     </div>
 @endif
 
-<style>
-    .firstDiv,
-    .secondDiv {
-        position: absolute;
-    }
-
-    .form-popup {
-        display: none;
-        position: block;
-        bottom: 0;
-        right: 15px;
-        z-index: 9;
-    }
-
-</style>
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css"
-    rel="stylesheet">
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
-
-<div class='pb-1 '>
-
-    <a id="exportraw" href="/export/export_excel" class="btn btn-info mr-2 ">export semua excel</a>
-    <button onclick="closeForm()" type="button" class="btn btn-red firstDiv ">Tutup</button>
-    <button onclick="openForm()" id="openb" type="button" class="btn btn-primary secondDiv ">Pilih jangka waktu</button>
-
-</div>
-
-
-<div>
-
-
-
-    <div class="form-popup mt-5" id="myForm">
-        <form action="{{ route('export.pilihan') }}" method="post">
-            @csrf
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="fromdate">Dari tanggal</label>
-                    <input autocomplete="off" type="text" class="date form-control" name="dari" id="fromdate" placeholder="Dari tanggal">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="todate">Sampai</label>
-                    <input autocomplete="off" type="text" class="date form-control" name="sampai" id="todate" placeholder="Sampai">
-                </div>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Export excel</button>
-        </form>
-    </div>
-
-</div>
-
-
+<a href="/export/export_excel" class="btn btn-info btn-sm">export excel</a>
 <br>
 <br>
 <div style="overflow-x: auto">
@@ -139,25 +83,6 @@
 </div>
 
 {{-- menampilkan pagination atau nomor halaman --}}
-{{ $absensi->links() }}
-<script type="text/javascript">
-    $('.date').datepicker({
+{{-- {{ $absensi->links() }} --}}
 
-        format: 'yyyy-mm-dd'
-
-    });
-
-    function openForm() {
-        document.getElementById("myForm").style.display = "block";
-        document.getElementById("openb").style.display = "none";
-        document.getElementById("exportraw").style.display = "none";
-    }
-
-    function closeForm() {
-        document.getElementById("myForm").style.display = "none";
-        document.getElementById("openb").style.display = "";
-        document.getElementById("exportraw").style.display = "";
-    }
-
-</script>
 @endsection

@@ -19,12 +19,14 @@ Route::get('/', function () {
     return view('template_backend.master');
 })->middleware('auth');
 
-Auth::routes(['verify'=> true]);
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
 Route::get('/export', 'ExportController@index');
 Route::get('/export/export_excel', 'ExportController@export_excel');
+Route::post('/export/pilihan', 'ExportController@pilihan')->name('export.pilihan');
+
 
 
 Route::resource('/jabatan', 'JabatanController');
@@ -37,9 +39,9 @@ Route::resource('/absensi', 'AbsensiController')->middleware('auth');
 //     return redirect('/');
 // } );
 
-Route::get('/location/{id}', 'Locationcontroller@show' );
+Route::get('/location/{id}', 'Locationcontroller@show');
 
 
 Route::get('/geo', function () {
-    return view('geocode');   
+    return view('geocode');
 });

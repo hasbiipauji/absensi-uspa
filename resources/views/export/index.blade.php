@@ -73,7 +73,7 @@
         style="width: 100% ; max-width:100%; white-space:nowrap;">
         <thead>
             <tr>
-                <th>No</th>
+                <th>Nomor</th>
                 <th>nama</th>
                 <th>status</th>
                 <th>keterangan</th>

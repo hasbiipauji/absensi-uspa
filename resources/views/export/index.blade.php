@@ -51,11 +51,11 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="fromdate">Dari tanggal</label>
-                    <input autocomplete="off" type="text" class="date form-control" name="dari" id="fromdate" placeholder="Dari tanggal">
+                    <input autocomplete="off" type="text" class="date form-control" name="dari" id="fromdate" required placeholder="Dari tanggal">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="todate">Sampai</label>
-                    <input autocomplete="off" type="text" class="date form-control" name="sampai" id="todate" placeholder="Sampai">
+                    <input autocomplete="off" type="text" class="date form-control" name="sampai" id="todate" required placeholder="Sampai">
                 </div>
             </div>
 

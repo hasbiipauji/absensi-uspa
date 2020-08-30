@@ -12,9 +12,9 @@ use Maatwebsite\Excel\Concerns\WithStyles;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\WithColumnWidths;
 
-
-class AbsensiExport implements FromView, WithDrawings, ShouldAutoSize
+class AbsensiExport implements FromView, WithDrawings, ShouldAutoSize, WithColumnWidths
 {
     /**
      * @return \Illuminate\Support\Collection
@@ -41,7 +41,10 @@ class AbsensiExport implements FromView, WithDrawings, ShouldAutoSize
         $idCurrentUser = auth()->user()->id;
         isset($this->dataDari) ?
             $pilihan = view('export.absen', [
-                'absens' => Absensi::where('user_id', $idCurrentUser)->whereBetween('created_at', [$this->dataDari, $this->dataSampai])->get()
+                'absens' => Absensi::where('user_id', $idCurrentUser)->whereBetween('created_at', [$this->dataDari, $this->dataSampai])->get(),
+                'dari' => $this->dataDari,
+                'sampai' => $this->dataSampai
+
             ]) :
 
             $nopilihan =  view('export.absen', [
@@ -59,10 +62,20 @@ class AbsensiExport implements FromView, WithDrawings, ShouldAutoSize
         $drawing->setName('Logo');
         $drawing->setDescription('This is my logo');
         $drawing->setPath(public_path('assets/img/uspa.png'));
-        $drawing->setHeight(90);
-        $drawing->setCoordinates('A1');
+        $drawing->setHeight(50);
+        $drawing->setCoordinates('B2');
 
         return $drawing;
+    }
+
+    public function columnWidths(): array
+    {
+        return [
+            'A' => 3,
+            'B' => 5,
+            'H' => 15,
+
+        ];
     }
 }
 

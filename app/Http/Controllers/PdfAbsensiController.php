@@ -21,8 +21,8 @@ class PdfAbsensiController extends Controller
 
         //share data to view
         view()->share('absensi', $data);
-        $pdf = PDF::loadView('absensi.pdf', $data);
+        $pdf = PDF::loadView('absensi.pdf', $data)->setPaper('A4', 'landscape');
 
-        return $pdf->download('pdf_file.pdf');
+        return $pdf->download('absensi.pdf');
     }
 }

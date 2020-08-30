@@ -58,7 +58,6 @@ class AbsensiController extends Controller
 
         auth()->user()->absensis()->create($request->all());
 
-
         return redirect('/absensi')->with('success', 'Absensi berhasil');
         }
 

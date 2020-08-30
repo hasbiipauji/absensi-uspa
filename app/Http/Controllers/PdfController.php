@@ -24,6 +24,7 @@ class PdfController extends Controller
         view()->share('pegawai', $data);
         $pdf = PDF::loadView('admin.pegawai.pdf', $data);
 
-        return $pdf->download('pdf_file.pdf');
+        //return $pdf->download('pegawai.pdf');
+        return $pdf->stream();
     }
 }

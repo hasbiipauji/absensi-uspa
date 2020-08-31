@@ -6,7 +6,7 @@
 {{-- if dibawah untuk validasi data --}}
 @if (count($errors)>0)
     @foreach ($errors->all() as $error)
-    <div class="alert alert-danger col-sm-4" role="alert">
+    <div class="alert alert-danger col-sm-12" role="alert">
         {{ $error }}
     </div>
     @endforeach
@@ -14,7 +14,7 @@
 
 {{-- if dibawah untuk flash message --}}
 @if (Session::has('success'))
-    <div class="alert alert-success col-sm-4" role="alert">
+    <div class="alert alert-success col-sm-12" role="alert">
         {{ Session('success') }}
     </div>
 @endif

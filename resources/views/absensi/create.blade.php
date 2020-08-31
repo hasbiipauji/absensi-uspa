@@ -30,17 +30,17 @@
                   <input  type="radio" name="status" id="option1" value="hadir" required> Hadir
                 </label>
                 <label onclick="handleClick(3);"  class=" m-auto btn btn-danger" id="label_absen_1">
-                  <input  type="radio" name="status" id="option2" value="izin"> Izin
+                  <input  type="radio" name="status" id="option2" value="izin" placeholder="Masukan Keterangan"> Izin
                 </label>
                 <label onclick="handleClick(4);"  class=" m-auto btn btn-warning" id="label_absen_1">
-                  <input  type="radio" name="status" id="option3" value="sakit"> Sakit
+                  <input  type="radio" name="status" id="option3" value="sakit" placeholder="Masukan keterangan"> Sakit
             </label>
 
             </div>
 
             <div class=" mt-3 form-group col-sm-12" id="keterangan" style="display: none;">
                     <label>Keterangan</label>
-                    <input type="text" class="form-control" name="keterangan">
+                    <input type="text" class="form-control" name="keterangan" placeholder="tambah keterangan">
             </div>
 
             <div class="form-group d-flex mt-5">

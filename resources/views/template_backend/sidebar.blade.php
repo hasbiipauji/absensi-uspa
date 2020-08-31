@@ -12,7 +12,7 @@
 
         <li class="menu-header">Menu</li>
         <li class="dropdown">
-            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-address-book"></i> <span>Data Pegawai</span></a>
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-users"></i> <span>Data Pegawai</span></a>
             <ul class="dropdown-menu">
               <li><a class="nav-link" href="{{ route('pegawai.index') }}">List Pegawai</a></li>
               <li><a class="nav-link" href="{{ route('jabatan.index') }}">List Jabatan</a></li>
@@ -21,36 +21,36 @@
 
 
         <li class="dropdown">
-          <a href="{{ route('absensi.create') }}" class="nav-link " ><i class="fas fa-cubes"></i> <span>Absensi</span></a>
+          <a href="{{ route('absensi.create') }}" class="nav-link " ><i class="fas fa-align-left"></i> <span>Absensi</span></a>
         </li>
 
         <li class="dropdown">
           <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cubes"></i> <span>Struktur</span></a>
           <ul class="dropdown-menu">
-            <li><a class="nav-link" href="">List Kategori</a></li>
+            <li><a class="nav-link" href="">Struktur Organisasi</a></li>
           </ul>
         </li>
 
-        <li class="dropdown">
+        {{-- <li class="dropdown">
             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-tags"></i> <span>Alur Kerja</span></a>
             <ul class="dropdown-menu">
               <li><a class="nav-link" href="">List Tag</a></li>
             </ul>
-         </li>
+         </li> --}}
 
          <li class="dropdown">
-            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user"></i> <span>Report</span></a>
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-archive"></i> <span>Report</span></a>
             <ul class="dropdown-menu">
-              <li><a class="nav-link" href="">List User</a></li>
+              <li><a class="nav-link" href="">Hasil Report</a></li>
             </ul>
          </li>
 
-         <li class="dropdown">
+         {{-- <li class="dropdown">
             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user"></i> <span>User</span></a>
             <ul class="dropdown-menu">
               <li><a class="nav-link" href="">List User</a></li>
             </ul>
-         </li>
+         </li> --}}
       </aside>
    </div>
 

@@ -13,20 +13,23 @@ use RealRashid\SweetAlert\Facades\Alert;
 |
 */
 
-Route::get('/', function () {
-    //Alert::success('Success Title', 'Login Berhasil');
 
-    return view('template_backend.master');
-})->middleware('auth');
 
 Auth::routes(['verify'=> true]);
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
-Route::resource('/jabatan', 'JabatanController');
-Route::resource('/pegawai', 'PegawaiController');
+Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
 
-Route::resource('/absensi', 'AbsensiController')->middleware('auth');
+    Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+    Route::resource('/jabatan', 'JabatanController');
+    Route::resource('/pegawai', 'PegawaiController');
+    Route::get('/', function(){
+        return redirect('/home');
+    });
+});
+Route::resource('/absensi', 'AbsensiController');
+
+
 
 // Route::get('/location', function ()
 // {

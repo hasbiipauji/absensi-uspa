@@ -11,7 +11,7 @@
 <br>
 <br>
 
-<table class="table table-striped table-hover table-sm table-bordered">
+<table class="container table table-striped table-hover table-sm table-bordered">
     <thead>
         <tr>
             <th>No</th>

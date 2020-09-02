@@ -90,7 +90,7 @@
 
                             @if($d == date('Y-m-d') && $hasil->user_id == auth()->user()->id )
                                 <a href="{{ route('absensi.edit', $hasil->id) }}"
-                                    class="btn btn-primary btn-sm ">Edit</a>
+                                    class="btn btn-primary btn-sm ">Edit{{ $hasil->id }} </a>
                                 <button type="submit" class="btn btn-danger btn-sm "
                                     onclick="return confirm('Yakin ingin menghapus {{ $hasil->absensi }}">Delete</button>
                             @endif

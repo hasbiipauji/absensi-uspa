@@ -23,7 +23,7 @@
     </div>
     @endif
 
-    <form action="{{ route('absensi.update' , $absensi->user_id) }}" method="post">
+    <form action="{{ route('absensi.update' , $absensi->id) }}" method="post">
         @csrf
 
         @method('patch')

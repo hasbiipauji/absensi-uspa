@@ -115,7 +115,7 @@ class AbsensiController extends Controller
         ];
 
 
-        auth()->user()->absensis()->update($absensi_data);
+        auth()->user()->absensis()->find($id)->update($absensi_data);
 
 
         return redirect()->route('absensi.index')->with('success', 'data berhasil diedit');

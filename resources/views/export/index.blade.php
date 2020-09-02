@@ -1,5 +1,7 @@
 @extends('template_backend.master')
-@section('sub-judul', 'absensi')
+@section('sub-judul', 'Report')
+@section('title', 'Report')
+
 
 @section('content')
 
@@ -43,8 +45,6 @@
 
 <div>
 
-
-
     <div class="form-popup mt-5" id="myForm">
         <form action="{{ route('export.pilihan') }}" method="post">
             @csrf
@@ -78,9 +78,9 @@
                 <th>status</th>
                 <th>keterangan</th>
                 <th>tanggal absensi</th>
-                <th>alamat</th>
-                <th>longitude</th>
-                <th>latitude</th>
+                <th>alamat absensi</th>
+                {{-- <th>longitude</th>
+                <th>latitude</th> --}}
                 <th>map location</th>
             </tr>
         </thead>
@@ -100,17 +100,32 @@
                     {{-- menampilkan keterangan --}}
                     <td>{{ $hasil->keterangan }}</td>
 
+                    
                     {{-- menampilkan tanggal dibuat --}}
-                    <td>{{ $hasil->created_at }}</td>
+                    <td>
+                        @php
+                            $dateold = $hasil->created_at;
+                            $datenew = explode(" ", $dateold);
+
+                            echo(date('d',strtotime($datenew[0]))." ");
+                            echo($monthNames[date('m',strtotime($datenew[0]))]);
+                            echo(" ".date('Y',strtotime($datenew[0])));
+
+                        @endphp
+                    </td>
+
+                    {{-- menampilkan waktu --}}
+                    <td>{{date('H:i',strtotime($datenew[1])) }}</td>
+
 
                     {{-- menampilkan alamat --}}
                     <td>{{ $hasil->alamat }}</td>
 
-                    {{-- menampilkan longitude --}}
+                    {{-- menampilkan longitude
                     <td>{{ $hasil->longitude }}</td>
 
-                    {{-- menampilkan latitude --}}
-                    <td>{{ $hasil->latitude }}</td>
+                    menampilkan latitude
+                    <td>{{ $hasil->latitude }}</td> --}}
 
                     {{-- menampilkan map --}}
                     @if($hasil->latitude==true)

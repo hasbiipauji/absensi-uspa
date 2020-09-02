@@ -1,6 +1,6 @@
 @extends('template_backend.master')
-@section('sub-judul', 'Report Absensi')
-@section('title', 'Report Absensi')
+@section('sub-judul', 'Absensi ' .$absensi[0]->user->name)
+@section('title', 'Absensi')
 
 
 @section('content')
@@ -10,20 +10,13 @@
         {{ Session('success') }}
     </div>
 @endif
-
-<form action="{{ route('export.export_excel_pilihan') }}" method="post">
-
-    @csrf
-
-    <input type="hidden" id="lat" name="dari" value="{{ $dari }}">
-    <input type="hidden" id="lat" name="sampai" value="{{ $sampai }}">
-
-    {{-- <a href="/export/export_excel_pilihan" class="btn btn-info btn-sm">export excel</a> --}}
-    <button type="submit" class="btn btn-primary">Export excel</button>
+<div class=" mb-5">
+    <a class="btn btn-primary" style="float: right" href="{{ route('pdf-absensi') }}">Export to PDF</a>
+    <a class="btn btn-success mr-2" style="float: right" href="{{ route('export.export_excel_hari_ini') }}">Export to excel</a>
+</div>
 
 
-</form>
-
+{{-- <a href="{{ route('absensi.create') }}" class="btn btn-info btn-sm">Tambah absensi</a> --}}
 <br>
 <br>
 <div style="overflow-x: auto">
@@ -31,14 +24,16 @@
         style="width: 100% ; max-width:100%; white-space:nowrap;">
         <thead>
             <tr>
-                <th>No </th>
+                <th>No</th>
                 <th>Nama</th>
                 <th>Status</th>
                 <th>Keterangan</th>
-                <th>Tanggal absensi</th>
+                <th>Tanggal</th>
                 <th>Waktu</th>
-                <th>Alamat</th>
-                <th>Lokasi map</th>
+                <th>Alamat absensi</th>
+              
+                <th>Map location</th>
+                <th>Action</th>
             </tr>
         </thead>
 
@@ -62,19 +57,17 @@
                         @php
                             $dateold = $hasil->created_at;
                             $datenew = explode(" ", $dateold);
-
-                            echo(date('d',strtotime($datenew[0]))." ");
-                            echo($monthNames[date('m',strtotime($datenew[0]))]);
-                            echo(" ".date('Y',strtotime($datenew[0])));
-
+                            echo($datenew[0]);
                         @endphp
                     </td>
 
                     {{-- menampilkan waktu --}}
-                    <td>{{date('H:i',strtotime($datenew[1])) }}</td>
+                    <td>{{ date('H:i',strtotime($datenew[1])) }}</td>
 
                     {{-- menampilkan alamat --}}
                     <td>{{ $hasil->alamat }}</td>
+
+                
 
                     {{-- menampilkan map --}}
                     @if($hasil->latitude==true)
@@ -83,7 +76,28 @@
                         <td></td>
                     @endif
 
+                    <td class=" float-right">
+                        <form action="{{ route('absensi.destroy', $hasil->id) }}"
+                            method="post">
+                            @csrf
+                            @method('delete')
 
+                            @php
+
+                                $d = strtotime($hasil->created_at);
+                                $d = date("Y-m-d",$d);
+                            @endphp
+
+                            @if($d == date('Y-m-d') && $hasil->user_id == auth()->user()->id )
+                                <a href="{{ route('absensi.edit', $hasil->id) }}"
+                                    class="btn btn-primary btn-sm ">Edit</a>
+                                <button type="submit" class="btn btn-danger btn-sm "
+                                    onclick="return confirm('Yakin ingin menghapus {{ $hasil->absensi }}">Delete</button>
+                            @endif
+
+
+                        </form>
+                    </td>
 
                 </tr>
             @endforeach
@@ -92,6 +106,6 @@
 </div>
 
 {{-- menampilkan pagination atau nomor halaman --}}
-{{-- {{ $absensi->links() }} --}}
+{{ $absensi->links() }}
 
 @endsection

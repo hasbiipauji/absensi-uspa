@@ -1,6 +1,6 @@
 @extends('template_backend.master')
 @section('sub-judul', 'Absensi')
-@section('sub-title', 'Absensi')
+@section('title', 'Edit Absensi')
 
 @section('content')
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

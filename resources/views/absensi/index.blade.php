@@ -1,5 +1,7 @@
 @extends('template_backend.master')
 @section('sub-judul', 'Absensi hari ini')
+@section('title', 'Absensi')
+
 
 @section('content')
 
@@ -8,8 +10,13 @@
         {{ Session('success') }}
     </div>
 @endif
+<div class=" mb-5">
+    <a class="btn btn-primary" style="float: right" href="{{ route('pdf-absensi') }}">Export to PDF</a>
+    <a class="btn btn-success mr-2" style="float: right" href="{{ route('export.export_excel_hari_ini') }}">Export to excel</a>
+</div>
 
-<a href="{{ route('absensi.create') }}" class="btn btn-info btn-sm">Tambah absensi</a>
+
+{{-- <a href="{{ route('absensi.create') }}" class="btn btn-info btn-sm">Tambah absensi</a> --}}
 <br>
 <br>
 <div style="overflow-x: auto">
@@ -23,9 +30,8 @@
                 <th>Keterangan</th>
                 <th>Tanggal</th>
                 <th>Waktu</th>
-                <th>Alamat</th>
-                <th>Longitude</th>
-                <th>Latitude</th>
+                <th>Alamat absensi</th>
+              
                 <th>Map location</th>
                 <th>Action</th>
             </tr>
@@ -55,17 +61,13 @@
                         @endphp
                     </td>
 
-                    {{-- menampilkan alamat --}}
-                    <td>{{ $datenew[1] }}</td>
+                    {{-- menampilkan waktu --}}
+                    <td>{{ date('H:i',strtotime($datenew[1])) }}</td>
 
                     {{-- menampilkan alamat --}}
                     <td>{{ $hasil->alamat }}</td>
 
-                    {{-- menampilkan longitude --}}
-                    <td>{{ $hasil->longitude }}</td>
-
-                    {{-- menampilkan latitude --}}
-                    <td>{{ $hasil->latitude }}</td>
+                
 
                     {{-- menampilkan map --}}
                     @if($hasil->latitude==true)

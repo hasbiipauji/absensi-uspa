@@ -71,7 +71,14 @@ class AbsensiController extends Controller
      */
     public function show($id)
     {
-        //
+        $from = date('Y-m-d');
+        $to = date('Y-m-d');
+        $to = date('Y-m-d', strtotime("+1 day", strtotime($to)));
+        // ->whereBetween('created_at', [$from, $to])
+        $absensi = Absensi::find($id)->latest()->paginate(10);
+
+
+        return view('absensi.show', compact('absensi'));
     }
 
     /**
@@ -102,7 +109,8 @@ class AbsensiController extends Controller
             'status' => $request->status,
             'alamat' => $request->alamat,
             'keterangan' => $request->keterangan,
-
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
         ];
 
 

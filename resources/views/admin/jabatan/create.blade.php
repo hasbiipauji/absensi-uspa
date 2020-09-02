@@ -1,5 +1,7 @@
 @extends('template_backend.master')
 @section('sub-judul', 'tambah jabatan')
+@section('title', 'Tambah Jabatan')
+
 
 @section('content')
 

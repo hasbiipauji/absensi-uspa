@@ -40,7 +40,7 @@
 
             <div class=" mt-3 form-group col-sm-12" id="keterangan" style="display: none;">
                     <label>Keterangan</label>
-                    <input type="text" class="form-control" name="keterangan" placeholder="tambah keterangan">
+                    <input type="text" class="form-control" name="keterangan" placeholder="tambah keterangan disini">
             </div>
 
             <div class="form-group d-flex mt-5">

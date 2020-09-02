@@ -26,7 +26,9 @@
             <th>Longitude</th>
             <th>Latitude</th>
             <th>Map Location</th>
-            <th>Action</th>
+            @if (auth()->user()->role == 'admin')
+                <th>Action</th>
+            @endif
         </tr>
     </thead>
 
@@ -63,15 +65,16 @@
             @else
               <td></td>
             @endif
-
-            <td>
-                <form action="{{ route('absensi.destroy', $hasil->id) }}" method="post">
-                    @csrf
-                    @method('delete')
-                    <a href="{{ route('absensi.edit', $hasil->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus {{ $hasil->absensi }}">Delete</button>
-                </form>
-            </td>
+            @if (auth()->user()->role == 'admin')
+                <td>
+                    <form action="{{ route('absensi.destroy', $hasil->id) }}" method="post">
+                        @csrf
+                        @method('delete')
+                        <a href="{{ route('absensi.edit', $hasil->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus {{ $hasil->absensi }}">Delete</button>
+                    </form>
+                </td>
+            @endif
 
         </tr>
         @endforeach

@@ -13,11 +13,11 @@ class CheckRole
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next,$role)
+    public function handle($request, Closure $next,...$roles)
     {
-        if ($request->user()->role == $role) {
+        if (in_array($request->user()->role,$roles)) {
             return $next($request); //ini artinya boleh dilanjutkan
         }
-        return redirect('/absensi');
+        return redirect('/');
     }
 }

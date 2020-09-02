@@ -26,8 +26,19 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::get('/', function(){
         return redirect('/home');
     });
+    Route::resource('/absensi', 'AbsensiController');
 });
-Route::resource('/absensi', 'AbsensiController');
+
+Route::group(['middleware' => ['auth', 'checkRole:admin,user']], function () {
+
+    Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+    Route::resource('/jabatan', 'JabatanController');
+    Route::resource('/pegawai', 'PegawaiController');
+    Route::get('/', function(){
+        return redirect('/home');
+    });
+    Route::resource('/absensi', 'AbsensiController');
+});
 
 
 

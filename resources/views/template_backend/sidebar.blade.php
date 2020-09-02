@@ -15,7 +15,9 @@
             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-users"></i> <span>Data Pegawai</span></a>
             <ul class="dropdown-menu">
               <li><a class="nav-link" href="{{ route('pegawai.index') }}">List Pegawai</a></li>
-              <li><a class="nav-link" href="{{ route('jabatan.index') }}">List Jabatan</a></li>
+              @if (auth()->user()->role == 'admin')
+                <li><a class="nav-link" href="{{ route('jabatan.index') }}">List Jabatan</a></li>
+              @endif
             </ul>
           </li>
 

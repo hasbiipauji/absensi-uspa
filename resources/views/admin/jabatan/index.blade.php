@@ -3,7 +3,9 @@
 
 @section('content')
 
-<a href="{{ route('jabatan.create') }}" class="btn btn-info btn-sm">Tambah Jabatan</a>
+@if (auth()->user()->role == 'admin')
+    <a href="{{ route('jabatan.create') }}" class="btn btn-info btn-sm">Tambah Jabatan</a>
+@endif
 <br>
 <br>
 

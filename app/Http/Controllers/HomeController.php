@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\jabatan;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        //ini untuk emenampilkan jumlah pegawai di dashboard
+        $jumlah_pegawai = User::all()->count();
+        $jumlah_jabatan = Jabatan::all()->count();
+        return view('home', compact('jumlah_pegawai', 'jumlah_jabatan'));
+
     }
 }

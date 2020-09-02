@@ -19,6 +19,10 @@ class PegawaiController extends Controller
     {
         $pegawai = User::paginate(10);
         return view('admin.pegawai.index', compact('pegawai'));
+
+        //ini untuk emenampilkan jumlah pegawai di dashboard
+        $jumlah_pegawai = User::all()->count();
+        return view('home')->with('jumlah_pegawai', $jumlah_pegawai);
     }
 
     /**

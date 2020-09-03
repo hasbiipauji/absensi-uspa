@@ -215,20 +215,20 @@
                                             $valuecreated=[""]; 
                                             $a=$i+1; 
                                         
-                                            foreach ($hasil as $keyi => $value) 
+                                            foreach ($hasil as $keyi => $hasile) 
                                             {
-                                                $valuestat[$keyi] = $value->status;
-                                                $valuecreated[$keyi] = date('d',strtotime($value->created_at)) ;
+                                                $hasilestat[$keyi] = $hasile->status;
+                                                $hasilecreated[$keyi] = date('d',strtotime($hasile->created_at)) ;
                                             }
                                         
-                                            echo("<td id='".$value->id.$a."'> - </td>");
+                                            echo("<td id='".$hasile->id.$a."'> - </td>");
                                         
                                             for ($x=0; $x < 32 ; $x++) 
                                             { 
-                                                if (empty($valuestat[$x])==false) 
+                                                if (empty($hasilestat[$x])==false) 
                                                 {
-                                                    if ($valuecreated[$x]==$a)
-                                                    { echo("<script>document.getElementById('".$value->id.$a."').innerHTML ='".$valuestat[$x]."'</script>");
+                                                    if ($hasilecreated[$x]==$a)
+                                                    { echo("<script>document.getElementById('".$hasile->id.$a."').innerHTML ='".$hasilestat[$x]."'</script>");
                                                     }
                                                 }
                                             }

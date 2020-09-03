@@ -200,8 +200,8 @@
                                     <td>
                                         @php
                                             $names = [""];
-                                            foreach ($hasil as $key => $value) {
-                                            $names[0] = $value->user->name;
+                                            foreach ($hasil as $key => $valuename) {
+                                            $names[0] = $valuename->user->name;
                                             }
                                             echo($names[0]);
                                         @endphp

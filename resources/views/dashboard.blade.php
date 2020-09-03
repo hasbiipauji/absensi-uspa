@@ -191,50 +191,6 @@
                         <tbody>
                             @if (isset($absensi))
                         
-                            @foreach($absensi_tabel as $key =>  $hasil)
-                                <tr>
-                                    {{-- ini untuk menampilkan nomor --}}
-                                    <td>{{ $key+1 }}</td>
-                                                                        
-                                    {{-- menampilkan nama dari model User --}}
-                                    <td>
-                                        @php
-                                            $names = [""];
-                                            foreach ($hasil as $key => $value) {
-                                            $names[0] = $value->user->name;
-                                            }
-                                            echo($names[0]);
-                                        @endphp
-                                    </td>
-                                    <td></td>
-
-                                    @php
-                                        for ($i=0; $i <32 ; $i++) {
-                                            $valuestat=[""]; 
-                                            $valuecreated=[""]; 
-                                            $a=$i+1; 
-                                        
-                                            foreach ($hasil as$keyi=> $value) 
-                                            {
-                                                $valuestat[$keyi] = $value->status;
-                                                $valuecreated[$keyi] = date('d',strtotime($value->created_at)) ;
-                                            }
-                                        
-                                            echo("<td id='".$value->id.$a."'> - </td>");
-                                        
-                                            for ($x=0; $x < 32 ; $x++) 
-                                            { 
-                                                if (empty($valuestat[$x])==false) 
-                                                {
-                                                    if ($valuecreated[$x]==$a)
-                                                    { echo("<script>document.getElementById('".$value->id.$a."').innerHTML ='".$valuestat[$x]."'</script>");
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    @endphp
-                                </tr>
-                            @endforeach
                             
                             
                             @endif

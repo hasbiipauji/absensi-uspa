@@ -220,14 +220,14 @@
                                                 $valuecreated[$keyi] = date('d',strtotime($value->created_at)) ;
                                             }
                                         
-                                            // echo("<td id='".$value->id.$a."'> - </td>");
+                                            echo("<td id='".$value->id.$a."'> - </td>");
                                         
                                             for ($x=0; $x < 32 ; $x++) 
                                             { 
                                                 if (empty($valuestat[$x])==false) 
                                                 {
                                                     if ($valuecreated[$x]==$a)
-                                                    { //echo("<script>document.getElementById('".$value->id.$a."').innerHTML ='".$valuestat[$x]."'</script>");
+                                                    { echo("<script>document.getElementById('".$value->id.$a."').innerHTML ='".$valuestat[$x]."'</script>");
                                                     }
                                                 }
                                             }

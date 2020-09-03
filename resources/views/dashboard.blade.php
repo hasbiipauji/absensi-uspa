@@ -200,8 +200,8 @@
                                     <td>
                                         @php
                                             $names = [""];
-                                            foreach ($hasil as $key => $value) {
-                                            $names[0] = $value->user->name;
+                                            foreach ($hasil as  $value1) {
+                                            $names[0] = $value1->user->name;
                                             }
                                             echo($names[0]);
                                         @endphp
@@ -209,6 +209,8 @@
                                     <td></td>
 
                                     @php
+                                    $idusertable =[""];
+                                    $idcell=[""];
                                         for ($i=0; $i <32 ; $i++) {
                                             $valuestat=[""]; 
                                             $valuecreated=[""]; 
@@ -218,16 +220,21 @@
                                             {
                                                 $valuestat[$keyi] = $value->status;
                                                 $valuecreated[$keyi] = date('d',strtotime($value->created_at)) ;
+                                                $idusertable[$keyi] = $value->id;
                                             }
+                                            foreach ($idusertable as $k => $valueidtab) {
+                                                $idcell[0]=$valueidtab;
+                                            }
+                                            echo("<td id='".$idcell[0].$a."'> - </td>");
+                                            // dd($value,$valueidtab,$idusertable,$hasil);
                                         
-                                            echo("<td id='".$value->id.$a."'> - </td>");
                                         
                                             for ($x=0; $x < 32 ; $x++) 
                                             { 
                                                 if (empty($valuestat[$x])==false) 
                                                 {
                                                     if ($valuecreated[$x]==$a)
-                                                    { echo("<script>document.getElementById('".$value->id.$a."').innerHTML ='".$valuestat[$x]."'</script>");
+                                                    { echo("<script>document.getElementById('".$idcell[0].$a."').innerHTML ='".$valuestat[$x]."'</script>");
                                                     }
                                                 }
                                             }

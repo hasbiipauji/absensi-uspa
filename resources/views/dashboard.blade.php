@@ -198,13 +198,13 @@
                                                                         
                                     {{-- menampilkan nama dari model User --}}
                                     <td>
-                                        @php
+                                        {{-- @php
                                             $names = [""];
                                             foreach ($hasil as $key => $valuename) {
                                             $names[0] = $valuename->user->name;
                                             }
                                             echo($names[0]);
-                                        @endphp
+                                        @endphp --}}
                                     </td>
                                     <td></td>
 

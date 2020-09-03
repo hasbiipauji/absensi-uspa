@@ -198,44 +198,41 @@
                                                                         
                                     {{-- menampilkan nama dari model User --}}
                                     <td>
-                                        {{-- @php
+                                        @php
                                             $names = [""];
-                                            foreach ($hasil as $key => $valuename) {
-                                            $names[0] = $valuename->user->name;
+                                            foreach ($hasil as $key => $value) {
+                                            $names[0] = $value->user->name;
                                             }
                                             echo($names[0]);
-                                        @endphp --}}
+                                        @endphp
                                     </td>
                                     <td></td>
 
-                                    @for ($i = 0; $i < 32; $i++)
-                                        
                                     @php
+                                        for ($i=0; $i <32 ; $i++) {
                                             $valuestat=[""]; 
                                             $valuecreated=[""]; 
                                             $a=$i+1; 
                                         
-                                            foreach ($hasil as $keyi => $hasile) 
+                                            foreach ($hasil as $keyi => $value) 
                                             {
-                                                $hasilestat[$keyi] = $hasile->status;
-                                                $hasilecreated[$keyi] = date('d',strtotime($hasile->created_at)) ;
+                                                $valuestat[$keyi] = $value->status;
+                                                $valuecreated[$keyi] = date('d',strtotime($value->created_at)) ;
                                             }
                                         
-                                            echo("<td id='".$hasile->id.$a."'> - </td>");
+                                            // echo("<td id='".$value->id.$a."'> - </td>");
                                         
                                             for ($x=0; $x < 32 ; $x++) 
                                             { 
-                                                if (empty($hasilestat[$x])==false) 
+                                                if (empty($valuestat[$x])==false) 
                                                 {
-                                                    if ($hasilecreated[$x]==$a)
-                                                    { echo("<script>document.getElementById('".$hasile->id.$a."').innerHTML ='".$hasilestat[$x]."'</script>");
+                                                    if ($valuecreated[$x]==$a)
+                                                    { //echo("<script>document.getElementById('".$value->id.$a."').innerHTML ='".$valuestat[$x]."'</script>");
                                                     }
                                                 }
                                             }
-                                        
+                                        }
                                     @endphp
-                                    @endfor
-
                                 </tr>
                             @endforeach
                             

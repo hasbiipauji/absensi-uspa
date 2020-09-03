@@ -200,39 +200,42 @@
                                     <td>
                                         @php
                                             $names = [""];
-                                            foreach ($hasil as $key => $bruh) {
-                                            $names[0] = $bruh->user->name;
+                                            foreach ($hasil as $key => $value) {
+                                            $names[0] = $value->user->name;
                                             }
                                             echo($names[0]);
                                         @endphp
                                     </td>
                                     <td></td>
 
+                                    @for ($i = 0; $i < 32; $i++)
+                                        
                                     @php
-                                        for ($i=0; $i <32 ; $i++) {
-                                            $bruhstat=[""]; 
-                                            $bruhcreated=[""]; 
+                                            $valuestat=[""]; 
+                                            $valuecreated=[""]; 
                                             $a=$i+1; 
                                         
-                                            foreach ($hasil as $keyi => $bruh) 
+                                            foreach ($hasil as $keyi => $value) 
                                             {
-                                                $bruhstat[$keyi] = $bruh->status;
-                                                $bruhcreated[$keyi] = date('d',strtotime($bruh->created_at)) ;
+                                                $valuestat[$keyi] = $value->status;
+                                                $valuecreated[$keyi] = date('d',strtotime($value->created_at)) ;
                                             }
                                         
-                                            echo("<td id='".$bruh->id.$a."'> - </td>");
+                                            echo("<td id='".$value->id.$a."'> - </td>");
                                         
                                             for ($x=0; $x < 32 ; $x++) 
                                             { 
-                                                if (empty($bruhstat[$x])==false) 
+                                                if (empty($valuestat[$x])==false) 
                                                 {
-                                                    if ($bruhcreated[$x]==$a)
-                                                    { echo("<script>document.getElementById('".$bruh->id.$a."').innerHTML ='".$bruhstat[$x]."'</script>");
+                                                    if ($valuecreated[$x]==$a)
+                                                    { echo("<script>document.getElementById('".$value->id.$a."').innerHTML ='".$valuestat[$x]."'</script>");
                                                     }
                                                 }
                                             }
-                                        }
+                                        
                                     @endphp
+                                    @endfor
+
                                 </tr>
                             @endforeach
                             

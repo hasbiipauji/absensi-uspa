@@ -15,10 +15,10 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 Auth::routes(['verify' => true]);
 
-Route::get('/', 'RoleController@check_role')->middleware('auth', 'verified');;
+Route::get('/', 'RoleController@check_role')->middleware('verified');;
+Route::get('/home', 'HomeController@index')->name('home');;
 
-Route::get('/dashboard', 'HomeController@index')->name('home')->middleware('verified');
-// 
+
 Route::group(['middleware' => ['auth', 'checkRole:admin', 'verified']], function () {
     Route::resource('/jabatan', 'JabatanController');
     Route::resource('/pegawai', 'PegawaiController');
@@ -26,7 +26,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin', 'verified']], function
     Route::post('/export_all_pilihan', 'ExportController@export_all_pilihan')->name('export_all_pilihan');
     Route::POST('/export_all/export_all_pilihan_excel', 'ExportController@export_all_pilihan_excel')->name('export.export_all_pilihan_excel');
 });
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::get('/export_month', 'ExportController@export_month');
     Route::get('/dashboard', 'DashboardController@index');

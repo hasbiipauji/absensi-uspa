@@ -26,7 +26,7 @@
                     <h4>Pegawai</h4>
                 </div>
                 <div class="card-body">
-                    {{ $jumlah_pegawai }}
+                    {{ $jumlah_pegawai ?? '' }}
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                     <h4>Jabatan</h4>
                 </div>
                 <div class="card-body">
-                    {{ $jumlah_jabatan }}
+                    {{ $jumlah_jabatan ?? '' }}
                 </div>
             </div>
         </div>
@@ -112,7 +112,10 @@
                         </thead>
 
                         <tbody>
-                            @foreach($absensi as $result => $hasil)
+                            @if (isset($absensi) )
+                                
+                            
+                            @foreach($absensi  as $result => $hasil)
                                 <tr>
                                     {{-- ini untuk menampilkan nomor --}}
                                     <td>{{ $result + 1 }}</td>
@@ -150,10 +153,15 @@
 
                                 </tr>
                             @endforeach
+
+                            @endif
                         </tbody>
                     </table>
                     {{-- menampilkan pagination atau nomor halaman --}}
+                    @if (isset($absensi))
+                        
                     {{ $absensi->links() }}
+                    @endif
 
                 </div>
             </div>
@@ -181,6 +189,8 @@
                         </thead>
 
                         <tbody>
+                            @if (isset($absensi))
+                        
                             @foreach($absensi_tabel as $key =>  $hasil)
                                 <tr>
                                     {{-- ini untuk menampilkan nomor --}}
@@ -225,6 +235,9 @@
                                     @endphp
                                 </tr>
                             @endforeach
+                            
+                            
+                            @endif
                         </tbody>
                     </table>
                 </div>

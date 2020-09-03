@@ -27,7 +27,7 @@
 
                 </div>
                 <div>
-                    <a href="{{ route('home') }}" style="float: right"><button type="button" class="btn btn-primary">Halaman Utama</button></a>
+                    <a href="/dashboard" style="float: right"><button type="button" class="btn btn-primary">Halaman Utama</button></a>
 
                 </div>
             </div>

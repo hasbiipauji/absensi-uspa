@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Absensi;
+use App\Exports\NamaBulan;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -15,13 +16,17 @@ class AbsensiController extends Controller
      */
     public function index()
     {
+
+        $monthNames = NamaBulan::getNameMonths();
+
+
         $from = date('Y-m-d');
         $to = date('Y-m-d');
         $to = date('Y-m-d', strtotime("+1 day", strtotime($to)));
         $absensi = Absensi::latest()->whereBetween('created_at', [$from, $to])->paginate(10);
 
 
-        return view('absensi.index', compact('absensi'));
+        return view('absensi.index', compact('absensi', 'monthNames'));
         // return redirect('absensi/create');
     }
 
@@ -71,15 +76,6 @@ class AbsensiController extends Controller
      */
     public function show($id)
     {
-        $uid = auth()->user()->id;
-        $from = date('Y-m-d');
-        $to = date('Y-m-d');
-        $to = date('Y-m-d', strtotime("+1 day", strtotime($to)));
-        // ->whereBetween('created_at', [$from, $to])
-        $absensi = Absensi::where('user_id', $id)->latest()->paginate(10);
-
-
-        return view('absensi.show', compact('absensi'));
     }
 
     /**

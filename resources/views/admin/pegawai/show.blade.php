@@ -1,5 +1,10 @@
 @extends('template_backend.master')
-@section('sub-judul', 'Absensi ' .$absensi[0]->user->name)
+
+@php
+use App\User;
+@endphp
+
+@section('sub-judul', 'Absensi ' . User::find($id)->name)
 @section('title', 'Absensi')
 
 
@@ -10,15 +15,23 @@
         {{ Session('success') }}
     </div>
 @endif
+
+@if (isset($absensi[0]->user['name'])==true)
+
 <div class=" mb-5">
     <a class="btn btn-primary" style="float: right" href="{{ route('pdf-absensi') }}">Export to PDF</a>
     <a class="btn btn-success mr-2" style="float: right" href="{{ route('export.export_excel_hari_ini') }}">Export to excel</a>
 </div>
-
+    
+@endif
 
 {{-- <a href="{{ route('absensi.create') }}" class="btn btn-info btn-sm">Tambah absensi</a> --}}
 <br>
 <br>
+
+
+
+
 <div style="overflow-x: auto">
     <table class="table table-striped table-hover table-sm table-bordered"
         style="width: 100% ; max-width:100%; white-space:nowrap;">
@@ -33,18 +46,28 @@
                 <th>Alamat absensi</th>
               
                 <th>Map location</th>
-                <th>Action</th>
             </tr>
         </thead>
 
         <tbody>
+
+            @if (isset($absensi[0]->user['name'])==false)
+            <div class="card text-left bg-warning">
+              <img class="card-img-top" src="holder.js/100px180/" alt="">
+              <div class="card-body">
+
+                <p class="h4 "><strong> user belum memiliki data absensi</strong>
+                </p>
+              </div>
+            </div>
+            @endif
             @foreach($absensi as $result => $hasil)
                 <tr>
                     {{-- ini untuk menampilkan nomor --}}
                     <td>{{ $result + 1 }}</td>
 
                     {{-- menampilkan nama dari model User --}}
-                    <td>{{ $hasil->user->name }}</td>
+                    <td>{{ $hasil->user['name'] }}</td>
 
                     {{-- menampilkan status --}}
                     <td>{{ $hasil->status }}</td>
@@ -76,34 +99,18 @@
                         <td></td>
                     @endif
 
-                    <td class=" float-right">
-                        <form action="{{ route('absensi.destroy', $hasil->id) }}"
-                            method="post">
-                            @csrf
-                            @method('delete')
-
-                            @php
-
-                                $d = strtotime($hasil->created_at);
-                                $d = date("Y-m-d",$d);
-                            @endphp
-
-                            @if($d == date('Y-m-d') && $hasil->user_id == auth()->user()->id )
-                                <a href="{{ route('absensi.edit', $hasil->id) }}"
-                                    class="btn btn-primary btn-sm ">Edit</a>
-                                <button type="submit" class="btn btn-danger btn-sm "
-                                    onclick="return confirm('Yakin ingin menghapus {{ $hasil->absensi }}">Delete</button>
-                            @endif
-
-
-                        </form>
-                    </td>
 
                 </tr>
             @endforeach
         </tbody>
     </table>
 </div>
+    
+    
+
+
+
+
 
 {{-- menampilkan pagination atau nomor halaman --}}
 {{ $absensi->links() }}

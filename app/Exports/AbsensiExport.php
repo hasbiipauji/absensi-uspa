@@ -21,7 +21,14 @@ class AbsensiExport implements FromView, ShouldAutoSize, WithColumnWidths
     use Exportable;
 
 
+    public function simpanAll(bool $dataAll, string $dataDariAll, string $dataSampaiAll)
+    {
+        $this->dataAll = $dataAll;
+        $this->dataDariAll = $dataDariAll;
+        $this->dataSampaiAll = $dataSampaiAll;
 
+        return $this;
+    }
     public function simpanDari(string $dataDari)
     {
         $this->dataDari = $dataDari;
@@ -61,6 +68,13 @@ class AbsensiExport implements FromView, ShouldAutoSize, WithColumnWidths
             $pilihan = view('export.absen', [
                 'absens' => Absensi::latest()->whereBetween('created_at', [$this->dataDariSekarang, $this->dataSampaiBesok])->get(),
                 'monthNames' => $namabulan
+            ]);
+        } else if (isset($this->dataAll)) {
+            $pilihan = view('export.absen_all', [
+                'absens' => Absensi::latest()->whereBetween('created_at', [$this->dataDariAll, $this->dataSampaiAll])->get(),
+                'monthNames' => $namabulan,
+                'dari' => $this->dataDariAll,
+                'sampai' => $this->dataSampaiAll,
             ]);
         } else {
             $nopilihan =  view('export.absen', [

@@ -22,20 +22,20 @@
 
             <li class="menu-header">Starter</li>
 
-            @if(auth()->user()->role=="admin")
-                <li class="dropdown">
-                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-address-book"></i>
-                        <span>Data Pegawai</span></a>
+            <li class="dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-address-book"></i>
+                    <span>Data Pegawai</span></a>
                     <ul class="dropdown-menu">
-                        <li><a class="nav-link" href="{{ route('pegawai.index') }}">List Pegawai</a>
+                        <li><a class="nav-link" href="/pegawai">List Pegawai</a>
                         </li>
+                        @if(auth()->user()->role=="admin")
                         <li><a class="nav-link" href="{{ route('jabatan.index') }}">List Jabatan</a>
                         </li>
+                        @else
+                        @endif
                     </ul>
                 </li>
-            @else
 
-            @endif
 
 
 
@@ -43,7 +43,7 @@
 
             @else
                 <li class="dropdown">
-                    <a href="{{ route('absensi.create') }}" class="nav-link "><i
+                    <a href="/absensi/create" class="nav-link "><i
                             class="fas fa-cubes"></i>
                         <span>Absensi</span></a>
                 </li>
@@ -70,7 +70,13 @@
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user"></i>
                     <span>Report</span></a>
                 <ul class="dropdown-menu">
+                    @if (auth()->user()->role=="admin")
+                    <li><a class="nav-link" href="/export_all">Report Absensi</a></li>
+                        
+                    @else
                     <li><a class="nav-link" href="/export">Report Absen</a></li>
+                        
+                    @endif
                 </ul>
             </li>
 

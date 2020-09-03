@@ -52,17 +52,21 @@
                     {{-- menampilkan keterangan --}}
                     <td>{{ $hasil->keterangan }}</td>
 
-                    {{-- menampilkan tanggal dibuat --}}
+                   {{-- menampilkan tanggal dibuat --}}
                     <td>
                         @php
                             $dateold = $hasil->created_at;
                             $datenew = explode(" ", $dateold);
-                            echo($datenew[0]);
+
+                            echo(date('d',strtotime($datenew[0]))." ");
+                            echo($monthNames[date('m',strtotime($datenew[0]))]);
+                            echo(" ".date('Y',strtotime($datenew[0])));
+
                         @endphp
                     </td>
 
                     {{-- menampilkan waktu --}}
-                    <td>{{ date('H:i',strtotime($datenew[1])) }}</td>
+                    <td>{{date('H:i',strtotime($datenew[1])) }}</td>
 
                     {{-- menampilkan alamat --}}
                     <td>{{ $hasil->alamat }}</td>

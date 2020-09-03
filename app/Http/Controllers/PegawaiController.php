@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Absensi;
 use App\Pegawai;
 use App\Jabatan;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class PegawaiController extends Controller
 {
@@ -27,7 +29,8 @@ class PegawaiController extends Controller
      */
     public function create()
     {
-        return view('admin.pegawai.create');
+        $jabatan = Jabatan::all();
+        return view('admin.pegawai.create', compact('jabatan'));
     }
 
     /**
@@ -39,8 +42,17 @@ class PegawaiController extends Controller
     public function store(Request $request)
     {
 
+        $emailverify = date('Y-m-d');
 
+        User::create([
+            'name' => $request['name'],
+            'email_verified_at' => $emailverify,
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+            'jabatan' => $request['jabatan']
+        ]);
 
+        return redirect('/pegawai')->with('success', 'User baru berhasil ditambahkan');
     }
 
     /**
@@ -51,7 +63,17 @@ class PegawaiController extends Controller
      */
     public function show($id)
     {
-        //
+
+
+        $from = date('Y-m-d');
+        $to = date('Y-m-d');
+        $to = date('Y-m-d', strtotime("+1 day", strtotime($to)));
+        // ->whereBetween('created_at', [$from, $to])
+
+        $absensi = Absensi::where('user_id', $id)->latest()->paginate(10);
+
+
+        return view('admin.pegawai.show', compact('absensi', 'id'));
     }
 
     /**
@@ -82,7 +104,7 @@ class PegawaiController extends Controller
             'jabatan' => 'required'
         ]);
 
-        $user_data =[
+        $user_data = [
             'name' => $request->name,
             'jabatan' => $request->jabatan
         ];

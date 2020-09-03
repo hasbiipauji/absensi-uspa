@@ -12,6 +12,6 @@ class RoleController extends Controller
         // if (auth()->user()->role != true) {
         //     dd(auth()->user()->role);
         // }
-        return view('template_backend.master');
+        return redirect('/dashboard');
     }
 }

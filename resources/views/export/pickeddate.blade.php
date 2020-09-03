@@ -11,18 +11,34 @@
     </div>
 @endif
 
+<div class=" d-flex">
+@if (auth()->user()->role=="admin")
+<form action="{{ route('export.export_all_pilihan_excel') }}" method="post">
+@else
 <form action="{{ route('export.export_excel_pilihan') }}" method="post">
-
+@endif
     @csrf
-
     <input type="hidden" id="lat" name="dari" value="{{ $dari }}">
     <input type="hidden" id="lat" name="sampai" value="{{ $sampai }}">
 
     {{-- <a href="/export/export_excel_pilihan" class="btn btn-info btn-sm">export excel</a> --}}
     <button type="submit" class="btn btn-primary">Export excel</button>
-
-
 </form>
+
+
+@if (auth()->user()->role=="admin")
+<form action="{{ route('pdf-absensi_pilihan_admin') }}" method="post">
+@else
+<form action="{{ route('pdf-absensi_pilihan_user') }}" method="post">
+@endif
+    @csrf
+    <input type="hidden" id="lat" name="dari" value="{{ $dari }}">
+    <input type="hidden" id="lat" name="sampai" value="{{ $sampai }}">
+
+    {{-- <a href="/export/export_excel_pilihan" class="btn btn-info btn-sm">export excel</a> --}}
+    <button type="submit" class="btn btn-danger">Export PDF</button>
+</form>
+</div>
 
 <br>
 <br>

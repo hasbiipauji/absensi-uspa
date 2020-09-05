@@ -17,7 +17,7 @@
 
 <div class=" d-flex " style="overflow-x: auto ;">
     <div class="col-lg-3 col-md-3 col-sm-3 col-10 d-block">
-        <div class="card card-statistic-1">
+        <div class="card card-statistic-1 shadow-sm mb-3 bg-white rounded">
             <div class="card-icon bg-primary">
                 <i class="far fa-user"></i>
             </div>
@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-3 col-10 d-block">
-        <div class="card card-statistic-1">
+        <div class="card card-statistic-1 shadow-sm mb-3 bg-white rounded">
             <div class="card-icon bg-danger">
                 <i class="far fa-newspaper"></i>
             </div>
@@ -47,7 +47,7 @@
         </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-3 col-10 d-block">
-        <div class="card card-statistic-1">
+        <div class="card card-statistic-1 shadow-sm mb-3 bg-white rounded">
             <div class="card-icon bg-warning">
                 <i class="far fa-file"></i>
             </div>
@@ -62,7 +62,7 @@
         </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-3 col-10 d-block">
-        <div class="card card-statistic-1">
+        <div class="card card-statistic-1 shadow-sm mb-3 bg-white rounded">
             <div class="card-icon bg-success">
                 <i class="fas fa-circle"></i>
             </div>
@@ -82,7 +82,7 @@
 
   
     <div class="col-12">
-        <div class="card ">
+        <div class="card shadow-sm mb-3 bg-white rounded ">
             <img class="card-img-top" src="holder.js/100x180/" alt="">
             <div class="card-body">
                 <h4 class="card-title">Absensi hari ini</h4>            
@@ -168,8 +168,8 @@
         </div>
     </div>
 
-    <div class="col-12">
-        <div class="card">
+    <div class="col-12 ">
+        <div class="card shadow-sm mb-3 bg-white rounded">
             <img class="card-img-top" src="holder.js/100x180/" alt="">
             <div class="card-body">
                 <h4 class="card-title">Absensi bulan ini</h4>

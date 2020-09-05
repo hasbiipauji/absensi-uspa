@@ -34,7 +34,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 
-<div class='pb-1 '>
+<div class='pb-1 mb-2 '>
 
     <a id="exportraw" href="/export/export_excel" class="btn btn-info mr-2 ">export semua excel</a>
     <button onclick="closeForm()" type="button" class="btn btn-red firstDiv ">Tutup</button>
@@ -45,7 +45,7 @@
 
 <div>
 
-    <div class="form-popup mt-5" id="myForm">
+    <div class="form-popup mt-5 mb-1" id="myForm">
         <form action="{{ route('export_all_pilihan') }}" method="post">
             @csrf
             <div class="form-row">
@@ -66,80 +66,83 @@
 </div>
 
 
-<br>
-<br>
-<div style="overflow-x: auto">
-    <table class="table table-striped table-hover table-sm table-bordered"
-        style="width: 100% ; max-width:100%; white-space:nowrap;">
-        <thead>
-            <tr>
-                <th>Nomor</th>
-                <th>nama</th>
-                <th>status</th>
-                <th>keterangan</th>
-                <th>tanggal absensi</th>
-                <th>alamat absensi</th>
-                {{-- <th>longitude</th>
-                <th>latitude</th> --}}
-                <th>map location</th>
-            </tr>
-        </thead>
-
-        <tbody>
-           
-            @foreach($absensi as $result => $hasil)
+<div class="card text-left shadow-sm mb-5 bg-white rounded">
+  <img class="card-img-top" src="holder.js/100px180/" alt="">
+  <div class="card-body">
+    <div style="overflow-x: auto">
+        <table class="table table-striped table-hover table-sm table-bordered"
+            style="width: 100% ; max-width:100%; white-space:nowrap;">
+            <thead>
                 <tr>
-                    {{-- ini untuk menampilkan nomor --}}
-                    <td>{{ $result + 1 }}</td>
-
-                    {{-- menampilkan nama dari model User --}}
-                    <td>{{ $absensiname[$result]->user->name }}</td>
-
-                    {{-- menampilkan status --}}
-                    <td>{{ $hasil->status }}</td>
-
-                    {{-- menampilkan keterangan --}}
-                    <td>{{ $hasil->keterangan }}</td>
-
-                    
-                    {{-- menampilkan tanggal dibuat --}}
-                    <td>
-                        @php
-                            $dateold = $hasil->created_at;
-                            $datenew = explode(" ", $dateold);
-
-                            echo(date('d',strtotime($datenew[0]))." ");
-                            echo($monthNames[date('m',strtotime($datenew[0]))]);
-                            echo(" ".date('Y',strtotime($datenew[0])));
-
-                        @endphp
-                    </td>
-
-                    {{-- menampilkan waktu --}}
-                    <td>{{date('H:i',strtotime($datenew[1])) }}</td>
-
-
-                    {{-- menampilkan alamat --}}
-                    <td>{{ $hasil->alamat }}</td>
-
-                    {{-- menampilkan longitude
-                    <td>{{ $hasil->longitude }}</td>
-
-                    menampilkan latitude
-                    <td>{{ $hasil->latitude }}</td> --}}
-
-                    {{-- menampilkan map --}}
-                    @if($hasil->latitude==true)
-                        <td><a href="/location/{{ $hasil->id }}">lihat lokasi</a></td>
-                    @else
-                        <td></td>
-                    @endif
-
-
+                    <th>Nomor</th>
+                    <th>nama</th>
+                    <th>status</th>
+                    <th>keterangan</th>
+                    <th>tanggal absensi</th>
+                    <th>alamat absensi</th>
+                    {{-- <th>longitude</th>
+                    <th>latitude</th> --}}
+                    <th>map location</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+    
+            <tbody>
+               
+                @foreach($absensi as $result => $hasil)
+                    <tr>
+                        {{-- ini untuk menampilkan nomor --}}
+                        <td>{{ $result + 1 }}</td>
+    
+                        {{-- menampilkan nama dari model User --}}
+                        <td>{{ $absensiname[$result]->user->name }}</td>
+    
+                        {{-- menampilkan status --}}
+                        <td>{{ $hasil->status }}</td>
+    
+                        {{-- menampilkan keterangan --}}
+                        <td>{{ $hasil->keterangan }}</td>
+    
+                        
+                        {{-- menampilkan tanggal dibuat --}}
+                        <td>
+                            @php
+                                $dateold = $hasil->created_at;
+                                $datenew = explode(" ", $dateold);
+    
+                                echo(date('d',strtotime($datenew[0]))." ");
+                                echo($monthNames[date('m',strtotime($datenew[0]))]);
+                                echo(" ".date('Y',strtotime($datenew[0])));
+    
+                            @endphp
+                        </td>
+    
+                        {{-- menampilkan waktu --}}
+                        <td>{{date('H:i',strtotime($datenew[1])) }}</td>
+    
+    
+                        {{-- menampilkan alamat --}}
+                        <td>{{ $hasil->alamat }}</td>
+    
+                        {{-- menampilkan longitude
+                        <td>{{ $hasil->longitude }}</td>
+    
+                        menampilkan latitude
+                        <td>{{ $hasil->latitude }}</td> --}}
+    
+                        {{-- menampilkan map --}}
+                        @if($hasil->latitude==true)
+                            <td><a href="/location/{{ $hasil->id }}">lihat lokasi</a></td>
+                        @else
+                            <td></td>
+                        @endif
+    
+    
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+  </div>
 </div>
 
 {{-- menampilkan pagination atau nomor halaman --}}

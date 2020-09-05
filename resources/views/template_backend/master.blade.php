@@ -42,8 +42,11 @@
             <nav class="navbar navbar-expand-lg main-navbar">
                 <form class="form-inline mr-auto">
                     <ul class="navbar-nav mr-3">
-                        <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i
-                                    class="fas fa-bars"></i></a></li>
+                        <li>
+                            <a href="#" data-toggle="sidebar" class="nav-link nav-link-lg">
+                                <i class="fas fa-bars"></i>
+                            </a>
+                        </li>
                     </ul>
 
                 </form>
@@ -66,7 +69,7 @@
                                 <a class="dropdown-item has-icon text-danger mt-2"
                                     href="{{ route('logout') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                                    <i class="far fa-info"></i>
+                                    <i class="far fa-sign-out-alt"></i>
                                     {{ __('Logout') }}
 
                                 </a>

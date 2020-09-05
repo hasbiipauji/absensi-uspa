@@ -23,18 +23,30 @@
             <li class="menu-header">Starter</li>
 
             <li class="dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-address-book"></i>
+                <a href="/pegawai" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-users"></i>
                     <span>Data Pegawai</span></a>
                     <ul class="dropdown-menu">
                         <li><a class="nav-link" href="/pegawai">List Pegawai</a>
                         </li>
-                        @if(auth()->user()->role=="admin")
+                        {{-- @if(auth()->user()->role=="admin")
                         <li><a class="nav-link" href="{{ route('jabatan.index') }}">List Jabatan</a>
                         </li>
                         @else
-                        @endif
+                        @endif --}}
                     </ul>
                 </li>
+
+                @if(auth()->user()->role=="admin")
+                <li class="dropdown">
+                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-address-card"></i>
+                        <span>Jabatan</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link" href="{{ route('jabatan.index') }}">List Jabatan</a>
+                            </li>
+                        </ul>
+                    </li>
+                @else
+                @endif
 
 
 
@@ -58,13 +70,6 @@
                 </ul>
             </li>
 
-            <li class="dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-tags"></i> <span>Alur
-                        Kerja</span></a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="">List Tag</a></li>
-                </ul>
-            </li>
 
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user"></i>

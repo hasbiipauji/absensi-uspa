@@ -17,7 +17,7 @@
 
 <div class=" d-flex " style="overflow-x: auto ;">
     <div class="col-lg-3 col-md-3 col-sm-3 col-10 d-block">
-        <div class="card card-statistic-1">
+        <div class="card card-statistic-1 shadow p-3 mb-5 bg-white rounded">
             <div class="card-icon bg-primary">
                 <i class="far fa-user"></i>
             </div>
@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-3 col-10 d-block">
-        <div class="card card-statistic-1">
+        <div class="card card-statistic-1 shadow p-3 mb-5 bg-white rounded">
             <div class="card-icon bg-danger">
                 <i class="far fa-newspaper"></i>
             </div>
@@ -47,7 +47,7 @@
         </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-3 col-10 d-block">
-        <div class="card card-statistic-1">
+        <div class="card card-statistic-1 shadow-lg p-3 mb-5 bg-white rounded">
             <div class="card-icon bg-warning">
                 <i class="far fa-file"></i>
             </div>
@@ -62,7 +62,7 @@
         </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-3 col-10 d-block">
-        <div class="card card-statistic-1">
+        <div class="card card-statistic-1 shadow-lg p-3 mb-5 bg-white rounded">
             <div class="card-icon bg-success">
                 <i class="fas fa-circle"></i>
             </div>
@@ -80,22 +80,22 @@
 
 <div class="row">
 
-  
-    <div class="col-12">
+
+    <div class="col-12 shadow p-3 mb-5 bg-white rounded">
         <div class="card ">
             <img class="card-img-top" src="holder.js/100x180/" alt="">
             <div class="card-body">
-                <h4 class="card-title">Absensi hari ini</h4>            
-                
+                <h4 class="card-title">Absensi hari ini</h4>
+
                 @if (auth()->user()->role=="admin")
-                    
+
                 <div class=" d-flex mb-1">
                     <a class="btn btn-primary"  href="{{ route('pdf-absensi_hari_ini') }}">Export to PDF</a>
                     <a class="btn btn-success mr-2"  href="{{ route('export.export_excel_hari_ini') }}">Export to excel</a>
                 </div>
                 @endif
                 <div style="overflow-x: auto ; background-color: white">
-                    
+
                     <table class="table table-striped table-hover table-sm table-bordered"
                         style="width: 100% ; max-width:100%; white-space:nowrap;">
                         <thead>
@@ -113,8 +113,8 @@
 
                         <tbody>
                             @if (isset($absensi) )
-                                
-                            
+
+
                             @foreach($absensi  as $result => $hasil)
                                 <tr>
                                     {{-- ini untuk menampilkan nomor --}}
@@ -159,7 +159,7 @@
                     </table>
                     {{-- menampilkan pagination atau nomor halaman --}}
                     @if (isset($absensi))
-                        
+
                     {{ $absensi->links() }}
                     @endif
 
@@ -168,12 +168,12 @@
         </div>
     </div>
 
-    <div class="col-12">
+    <div class="col-12 shadow p-3 mb-5 bg-white rounded">
         <div class="card">
             <img class="card-img-top" src="holder.js/100x180/" alt="">
             <div class="card-body">
                 <h4 class="card-title">Absensi bulan ini</h4>
-                    
+
                 <div style="overflow-x: auto">
                     <table class="table table-striped table-hover table-sm table-bordered"
                         style="width: 100% ; max-width:100%; white-space:nowrap;">
@@ -190,12 +190,12 @@
 
                         <tbody>
                             @if (isset($absensi))
-                        
+
                             @foreach($absensi_tabel as $key =>  $hasil)
                                 <tr>
                                     {{-- ini untuk menampilkan nomor --}}
                                     <td>{{ $key+1 }}</td>
-                                                                        
+
                                     {{-- menampilkan nama dari model User --}}
                                     <td>
                                         @php
@@ -210,21 +210,21 @@
 
                                     @php
                                         for ($i=0; $i <32 ; $i++) {
-                                            $valuestat=[""]; 
-                                            $valuecreated=[""]; 
-                                            $a=$i+1; 
-                                        
-                                            foreach ($hasil as $keyi => $value) 
+                                            $valuestat=[""];
+                                            $valuecreated=[""];
+                                            $a=$i+1;
+
+                                            foreach ($hasil as $keyi => $value)
                                             {
                                                 $valuestat[$keyi] = $value->status;
                                                 $valuecreated[$keyi] = date('d',strtotime($value->created_at)) ;
                                             }
-                                        
+
                                             echo("<td id='".$value->id.$a."'> - </td>");
-                                        
-                                            for ($x=0; $x < 32 ; $x++) 
-                                            { 
-                                                if (empty($valuestat[$x])==false) 
+
+                                            for ($x=0; $x < 32 ; $x++)
+                                            {
+                                                if (empty($valuestat[$x])==false)
                                                 {
                                                     if ($valuecreated[$x]==$a)
                                                     { echo("<script>document.getElementById('".$value->id.$a."').innerHTML ='".$valuestat[$x]."'</script>");
@@ -235,13 +235,13 @@
                                     @endphp
                                 </tr>
                             @endforeach
-                            
-                            
+
+
                             @endif
                         </tbody>
                     </table>
                 </div>
-               
+
             </div>
         </div>
     </div>

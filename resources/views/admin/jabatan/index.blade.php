@@ -9,7 +9,7 @@
 <br>
 <br>
 
-<table class="table table-striped table-hover table-sm table-bordered">
+<table class="table table-striped table-hover table-sm table-bordered shadow p-3 mb-5 bg-white rounded">
     <thead>
         <tr>
             <th>No</th>

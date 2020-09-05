@@ -11,36 +11,23 @@
     </div>
 @endif
 
-
-
-      
-<div class=" mb-5">
     <a class="btn btn-primary" style="float: right" href="{{ route('pdf') }}">Export to PDF</a>
 
     @if (auth()->user()->role=="admin")
-    <a href="{{ route('pegawai.create') }}" class="btn btn-info btn-sm">Tambah Pegawai</a>
-    <br>
-    <br>
+        <a href="{{ route('pegawai.create') }}" class="btn btn-info btn-sm">Tambah Pegawai</a>
+        <br>
+        <br>
     @else
     @endif
-    
-</div>
 
-<br>
-<br>
-
-
-<div style="overflow-x: auto">
-
-    <table class="table table-striped table-hover table-sm table-bordered"
+    <table class="table table-striped table-hover table-sm table-bordered shadow p-3 mb-5 bg-white rounded"
     style="width: 100% ; max-width:100%; white-space:nowrap;">
         <thead>
             <tr>
                 <th>No</th>
-
                 <th>Nama Pegawai</th>
-                <th>email</th>
-                <th>jabatan</th>
+                <th>Email</th>
+                <th>Jabatan</th>
                 @if(auth()->user()->role == "admin")
 
                     <th>Absensi</th>
@@ -62,7 +49,7 @@
                     @if( auth()->user()->role == "admin")
                         <td>
                             <a class="btn-sm btn button-primary"
-                                href="{{ route('pegawai.show',$hasil->id) }}">lihat</a>
+                                href="{{ route('pegawai.show',$hasil->id) }}">Lihat</a>
                         </td>
                         <td>
                             <form action="{{ route('pegawai.destroy', $hasil->id) }}"
@@ -83,7 +70,7 @@
             @endforeach
         </tbody>
     </table>
-</div>
+
 {{ $pegawai->links() }}
 
 @endsection

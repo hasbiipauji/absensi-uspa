@@ -23,18 +23,24 @@
             <li class="menu-header">Starter</li>
 
             <li class="dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-address-book"></i>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-users"></i>
                     <span>Data Pegawai</span></a>
                     <ul class="dropdown-menu">
                         <li><a class="nav-link" href="/pegawai">List Pegawai</a>
                         </li>
-                        @if(auth()->user()->role=="admin")
-                        <li><a class="nav-link" href="{{ route('jabatan.index') }}">List Jabatan</a>
-                        </li>
-                        @else
-                        @endif
                     </ul>
                 </li>
+                @if(auth()->user()->role=="admin")
+                <li class="dropdown">
+                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-address-card"></i>
+                        <span>Jabatan</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link" href="{{ route('jabatan.index') }}">List Jabatan</a>
+                            </li>
+                        </ul>
+                    </li>
+                @else
+                @endif
 
 
 
@@ -43,43 +49,41 @@
 
             @else
                 <li class="dropdown">
-                    <a href="/absensi/create" class="nav-link "><i
-                            class="fas fa-cubes"></i>
-                        <span>Absensi</span></a>
+                    <a href="/absensi/create" class="nav-link "><i class="fas fa-fingerprint"></i>
+                    <span>Absensi</span></a>
                 </li>
-
             @endif
 
-            <li class="dropdown">
+
+            {{-- <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cubes"></i>
                     <span>Struktur</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="">List Kategori</a></li>
                 </ul>
-            </li>
+            </li> --}}
 
-            <li class="dropdown">
+            {{-- <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-tags"></i> <span>Alur
                         Kerja</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="">List Tag</a></li>
                 </ul>
-            </li>
+            </li> --}}
 
             <li class="dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user"></i>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file-import"></i>
                     <span>Report</span></a>
                 <ul class="dropdown-menu">
                     @if (auth()->user()->role=="admin")
                     <li><a class="nav-link" href="/export_all">Report Absensi</a></li>
-                        
+
                     @else
                     <li><a class="nav-link" href="/export">Report Absen</a></li>
-                        
+
                     @endif
                 </ul>
             </li>
 
-
-    </aside>
+        </aside>
 </div>

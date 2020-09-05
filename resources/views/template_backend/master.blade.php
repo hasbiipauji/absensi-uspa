@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>@yield('title')</title>
-    
+
 
 
     <!-- General CSS Files -->
@@ -42,8 +42,7 @@
             <nav class="navbar navbar-expand-lg main-navbar">
                 <form class="form-inline mr-auto">
                     <ul class="navbar-nav mr-3">
-                        <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i
-                                    class="fas fa-bars"></i></a></li>
+                        <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
                     </ul>
 
                 </form>
@@ -54,7 +53,7 @@
                             <img alt="image" src="{{ asset('assets/img/avatar/avatar-1.png') }}"
                                 class="rounded-circle mr-1">
                             <div class="dropdown-menu dropanim dropdown-menu-right">
-                                <a href="features-profile.html" class="dropdown-item has-icon">
+                                <a href="#" class="dropdown-item has-icon">
                                     <i class="far fa-user"></i> Profile
                                 </a>
 
@@ -66,7 +65,7 @@
                                 <a class="dropdown-item has-icon text-danger mt-2"
                                     href="{{ route('logout') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                                    <i class="far fa-info"></i>
+                                    <i class="fas fa-sign-out-alt"></i>
                                     {{ __('Logout') }}
 
                                 </a>

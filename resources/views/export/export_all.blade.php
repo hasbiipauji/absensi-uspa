@@ -69,7 +69,7 @@
 <br>
 <br>
 <div style="overflow-x: auto">
-    <table class="table table-striped table-hover table-sm table-bordered"
+    <table class="table table-striped table-hover table-sm table-bordered shadow p-3 mb-5 bg-white rounded"
         style="width: 100% ; max-width:100%; white-space:nowrap;">
         <thead>
             <tr>
@@ -86,7 +86,7 @@
         </thead>
 
         <tbody>
-           
+
             @foreach($absensi as $result => $hasil)
                 <tr>
                     {{-- ini untuk menampilkan nomor --}}
@@ -101,7 +101,7 @@
                     {{-- menampilkan keterangan --}}
                     <td>{{ $hasil->keterangan }}</td>
 
-                    
+
                     {{-- menampilkan tanggal dibuat --}}
                     <td>
                         @php

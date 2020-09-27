@@ -11,9 +11,6 @@
     </div>
 @endif
 
-
-
-
 <div class=" mb-2">
     <a class="btn btn-primary" style="float: right" href="{{ route('pdf') }}">Export to PDF</a>
 

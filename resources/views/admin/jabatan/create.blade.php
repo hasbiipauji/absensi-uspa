@@ -15,11 +15,13 @@
 @endif
 
 {{-- if dibawah untuk flash message --}}
-@if (Session::has('success'))
-    <div class="alert alert-success col-sm-4" role="alert">
-        {{ Session('success') }}
-    </div>
-@endif
+
+    @if (Session::has('success'))
+        <div class="alert alert-success" role="alert">
+            {{ Session('success') }}
+        </div>
+    @endif
+
 
 <form action="{{ route('jabatan.store') }}" method="post">
 @csrf
@@ -29,8 +31,24 @@
     </div>
 
     <div class="form-group col-sm-4">
-        <button class="btn btn-primary btn-">Tambah Jabatan</button>
+        <button class="btn btn-primary">Tambah Jabatan</button>
     </div>
 </form>
 
 @endsection
+
+@push('page-scripts')
+    <script src="{{ asset('assets/modules/sweetalert/sweetalert.min.js') }}"></script>
+@endpush
+
+{{-- @push('after-script')
+    @if (Session::has('success'))
+        <script>
+            $(".swal-success").click(function() {
+                swal('Data berhasil ditambahkan', 'success');
+            });
+        </script>
+    @endif
+@endpush --}}
+
+

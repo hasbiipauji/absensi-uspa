@@ -26,7 +26,19 @@ class AbsensiController extends Controller
         $absensi = Absensi::latest()->whereBetween('created_at', [$from, $to])->paginate(10);
 
 
-        return view('absensi.index', compact('absensi', 'monthNames'));
+        $user_absen_status = auth()->user()->absensis()->whereDate('created_at', date('Y-m-d'))->get();
+        $uid = auth()->user()->id;
+        $usercurdate = $user_absen_status->pluck('user_id')->get(0);
+
+        // dd($user_absen_status, $user_absen_status == true, $usercurdate);
+
+        if ($usercurdate == null) {
+            // dd($usercurdate, $user_absen_status , $uid , $usercurdate==$uid);     
+            return view('absensi.create');
+        } else {
+            return view('absensi.index', compact('absensi', 'monthNames'));
+        }
+
         // return redirect('absensi/create');
     }
 
@@ -41,8 +53,9 @@ class AbsensiController extends Controller
         $uid = auth()->user()->id;
         $usercurdate = $user_absen_status->pluck('user_id')->get(0);
 
+        // dd($user_absen_status, $user_absen_status == true, $usercurdate);
 
-        if ($usercurdate == $uid) {
+        if ($usercurdate != null) {
             // dd($usercurdate, $user_absen_status , $uid , $usercurdate==$uid);     
             return redirect('absensi');
         } else {
@@ -128,6 +141,6 @@ class AbsensiController extends Controller
         $absensi = Absensi::findorfail($id);
         $absensi->delete();
 
-        return redirect()->back()->with('success', 'data berhasil dihapus');
+        return redirect()->back()->with('success', 'data berhasil dihapus , silahkan isi kehadiran lagi');
     }
 }

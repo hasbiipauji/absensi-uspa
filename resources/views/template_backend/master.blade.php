@@ -70,7 +70,7 @@
                                 <a class="dropdown-item has-icon text-danger mt-2"
                                     href="{{ route('logout') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                                    <i class="far fa-sign-out-alt"></i>
+                                    <i class="fa fa-sign-out-alt"></i>
                                     {{ __('Logout') }}
 
                                 </a>

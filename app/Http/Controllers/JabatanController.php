@@ -42,7 +42,8 @@ class JabatanController extends Controller
 
         $jabatan = Jabatan::create($request->all()); //ini dari name file create jabatan
 
-        return redirect()->back()->with('success', 'data berhasil disimpan');
+        //Session::flash('tambah_jabatan','jabatan berhasil ditambahkan');
+        return redirect()->back()->with('success', 'berhasil dihapus');
     }
 
     /**
@@ -102,6 +103,6 @@ class JabatanController extends Controller
         $jabatan = jabatan::findorfail($id);
         $jabatan->delete();
 
-        return redirect()->back()->with('success', 'data berhasil dihapus');
+        return redirect()->back();
     }
 }

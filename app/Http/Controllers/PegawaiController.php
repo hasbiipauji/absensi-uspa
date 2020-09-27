@@ -122,6 +122,11 @@ class PegawaiController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $pegawai = User::findorfail($id);
+        $pegawai->delete();
+
+        return redirect()->back();
     }
+
 }

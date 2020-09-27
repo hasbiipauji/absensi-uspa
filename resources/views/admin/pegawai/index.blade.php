@@ -88,3 +88,34 @@
 {{ $pegawai->links() }}
 
 @endsection
+
+@push('page-scripts')
+<script src="{{ asset('assets/modules/sweetalert/sweetalert.min.js') }}"></script>
+@endpush
+
+@push('after-script')
+<script>
+$(".swal-confirm").click(function(e) {
+    id = e.target.dataset.id;
+    swal({
+        title: 'Yakin hapus data ini?',
+        text: 'Data yang dihapus tidak dapat dikembalikan',
+        icon: 'warning',
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            swal('Data berhasil dihapus', {
+            icon: 'success',
+            });
+            $(`#delete${id}`).submit();
+        } else {
+        // swal('Your imaginary file is safe!');
+        }
+      });
+  });
+</script>
+@endpush
+
+

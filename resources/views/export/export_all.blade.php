@@ -85,58 +85,58 @@
                     <th>map location</th>
                 </tr>
             </thead>
-    
+
             <tbody>
-               
+
                 @foreach($absensi as $result => $hasil)
                     <tr>
                         {{-- ini untuk menampilkan nomor --}}
                         <td>{{ $result + 1 }}</td>
-    
+
                         {{-- menampilkan nama dari model User --}}
                         <td>{{ $absensiname[$result]->user->name }}</td>
-    
+
                         {{-- menampilkan status --}}
                         <td>{{ $hasil->status }}</td>
-    
+
                         {{-- menampilkan keterangan --}}
                         <td>{{ $hasil->keterangan }}</td>
-    
-                        
+
+
                         {{-- menampilkan tanggal dibuat --}}
                         <td>
                             @php
                                 $dateold = $hasil->created_at;
                                 $datenew = explode(" ", $dateold);
-    
+
                                 echo(date('d',strtotime($datenew[0]))." ");
                                 echo($monthNames[date('m',strtotime($datenew[0]))]);
                                 echo(" ".date('Y',strtotime($datenew[0])));
-    
+
                             @endphp
                         </td>
-    
+
                         {{-- menampilkan waktu --}}
                         <td>{{date('H:i',strtotime($datenew[1])) }}</td>
-    
-    
+
+
                         {{-- menampilkan alamat --}}
                         <td>{{ $hasil->alamat }}</td>
-    
+
                         {{-- menampilkan longitude
                         <td>{{ $hasil->longitude }}</td>
-    
+
                         menampilkan latitude
                         <td>{{ $hasil->latitude }}</td> --}}
-    
+
                         {{-- menampilkan map --}}
                         @if($hasil->latitude==true)
                             <td><a href="/location/{{ $hasil->id }}">lihat lokasi</a></td>
                         @else
                             <td></td>
                         @endif
-    
-    
+
+
                     </tr>
                 @endforeach
             </tbody>

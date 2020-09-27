@@ -80,22 +80,22 @@
 
 <div class="row">
 
-  
+
     <div class="col-12">
         <div class="card shadow-sm mb-3 bg-white rounded ">
             <img class="card-img-top" src="holder.js/100x180/" alt="">
             <div class="card-body">
-                <h4 class="card-title">Absensi hari ini</h4>            
-                
+                <h4 class="card-title">Absensi hari ini</h4>
+
                 @if (auth()->user()->role=="admin")
-                    
+
                 <div class=" d-flex mb-1">
                     <a class="btn btn-primary"  href="{{ route('pdf-absensi_hari_ini') }}">Export to PDF</a>
                     <a class="btn btn-success mr-2"  href="{{ route('export.export_excel_hari_ini') }}">Export to excel</a>
                 </div>
                 @endif
                 <div style="overflow-x: auto ; background-color: white">
-                    
+
                     <table class="table table-striped table-hover table-sm table-bordered"
                         style="width: 100% ; max-width:100%; white-space:nowrap;">
                         <thead>
@@ -113,8 +113,8 @@
 
                         <tbody>
                             @if (isset($absensi) )
-                                
-                            
+
+
                             @foreach($absensi  as $result => $hasil)
                                 <tr>
                                     {{-- ini untuk menampilkan nomor --}}
@@ -159,7 +159,7 @@
                     </table>
                     {{-- menampilkan pagination atau nomor halaman --}}
                     @if (isset($absensi))
-                        
+
                     {{ $absensi->links() }}
                     @endif
 
@@ -173,7 +173,7 @@
             <img class="card-img-top" src="holder.js/100x180/" alt="">
             <div class="card-body">
                 <h4 class="card-title">Absensi bulan ini</h4>
-                    
+
                 <div style="overflow-x: auto">
                     <table class="table table-striped table-hover table-sm table-bordered"
                         style="width: 100% ; max-width:100%; white-space:nowrap;">
@@ -190,12 +190,12 @@
 
                         <tbody>
                             @if (isset($absensi))
-                        
+
                             @foreach($absensi_tabel as $key =>  $hasil)
                                 <tr>
                                     {{-- ini untuk menampilkan nomor --}}
                                     <td>{{ $key+1 }}</td>
-                                                                        
+
                                     {{-- menampilkan nama dari model User --}}
                                     <td>
                                         @php
@@ -212,11 +212,11 @@
                                     $idusertable =[""];
                                     $idcell=[""];
                                         for ($i=0; $i <32 ; $i++) {
-                                            $valuestat=[""]; 
-                                            $valuecreated=[""]; 
-                                            $a=$i+1; 
-                                        
-                                            foreach ($hasil as $keyi => $value) 
+                                            $valuestat=[""];
+                                            $valuecreated=[""];
+                                            $a=$i+1;
+
+                                            foreach ($hasil as $keyi => $value)
                                             {
                                                 $valuestat[$keyi] = $value->status;
                                                 $valuecreated[$keyi] = date('d',strtotime($value->created_at)) ;
@@ -227,11 +227,11 @@
                                             }
                                             echo("<td id='".$idcell[0].$a."'> - </td>");
                                             // dd($value,$valueidtab,$idusertable,$hasil);
-                                        
-                                        
-                                            for ($x=0; $x < 32 ; $x++) 
-                                            { 
-                                                if (empty($valuestat[$x])==false) 
+
+
+                                            for ($x=0; $x < 32 ; $x++)
+                                            {
+                                                if (empty($valuestat[$x])==false)
                                                 {
                                                     if ($valuecreated[$x]==$a)
                                                     { echo("<script>document.getElementById('".$idcell[0].$a."').innerHTML ='".$valuestat[$x]."'</script>");
@@ -242,20 +242,19 @@
                                     @endphp
                                 </tr>
                             @endforeach
-                            
-                            
+
+
                             @endif
                         </tbody>
                     </table>
                 </div>
-               
+
             </div>
         </div>
     </div>
 </div>
 
 
-
-
-
 @endsection
+
+

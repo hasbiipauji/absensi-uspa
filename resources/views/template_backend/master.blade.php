@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>@yield('title')</title>
-    
+
 
 
     <!-- General CSS Files -->
-    <link rel="stylesheet"
-        href="{{ asset('assets/modules/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/modules/fontawesome/css/all.min.css') }}">
 
     <!-- CSS Libraries -->
+    {{-- toastr --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 
     <!-- Template CSS -->
@@ -57,7 +58,7 @@
                             <img alt="image" src="{{ asset('assets/img/avatar/avatar-1.png') }}"
                                 class="rounded-circle mr-1">
                             <div class="dropdown-menu dropanim dropdown-menu-right">
-                                <a href="features-profile.html" class="dropdown-item has-icon">
+                                <a href="#" class="dropdown-item has-icon">
                                     <i class="far fa-user"></i> Profile
                                 </a>
 

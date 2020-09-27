@@ -61,15 +61,15 @@
                                         href="{{ route('pegawai.show',$hasil->id) }}">lihat</a>
                                 </td>
                                 <td>
-                                    <form action="{{ route('pegawai.destroy', $hasil->id) }}"
-                                        method="post">
+                                    <a href="{{ route('pegawai.edit', $hasil->id) }}" class="btn btn-primary btn-sm">Edit</a>
+
+                                    <a href="#" data-id="{{ $hasil->id }}" class="btn btn-danger btn-sm swal-confirm">
+                                    <form action="{{ route('pegawai.destroy', $hasil->id) }}" method="post" id="delete{{ $hasil->id }}">
                                         @csrf
                                         @method('delete')
-                                        <a href="{{ route('pegawai.edit', $hasil->id) }}"
-                                            class="btn btn-primary btn-sm">Edit</a>
-                                        <button type="submit" class="btn btn-danger btn-sm"
-                                            onclick="return confirm('Yakin ingin menghapus {{ $hasil->pegawai }}?">Delete</button>
                                     </form>
+                                    Delete
+                                    </a>
                                 </td>
 
                             @else

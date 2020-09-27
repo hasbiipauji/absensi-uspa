@@ -37,13 +37,13 @@ class JabatanController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'jabatan' => 'required|min:3'
+            'jabatan' => 'required|unique:jabatan|min:3'
         ]);
 
         $jabatan = Jabatan::create($request->all()); //ini dari name file create jabatan
 
         //Session::flash('tambah_jabatan','jabatan berhasil ditambahkan');
-        return redirect()->back()->with('success', 'berhasil dihapus');
+        return redirect()->back()->with('success', 'berhasil ditambahkan');
     }
 
     /**

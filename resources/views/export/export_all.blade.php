@@ -11,6 +11,17 @@
     </div>
 @endif
 
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+
 <style>
     .firstDiv,
     .secondDiv {
@@ -27,12 +38,7 @@
 
 </style>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css"
-    rel="stylesheet">
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 
 <div class='pb-1 mb-2 '>
 
@@ -149,9 +155,9 @@
 {{ $absensi->links() }}
 
 <script type="text/javascript">
-    $('.date').datepicker({
+     $('.date').datepicker({
 
-        format: 'yyyy-mm-dd'
+        dateFormat: 'yy-mm-dd'
 
     });
 

@@ -76,6 +76,11 @@ class AbsensiExport implements FromView, ShouldAutoSize, WithColumnWidths
                 'dari' => $this->dataDariAll,
                 'sampai' => $this->dataSampaiAll,
             ]);
+        } elseif (auth()->user()->role == 'admin') {
+            $nopilihan =  view('export.absen', [
+                'absens' => Absensi::all(),
+                'monthNames' => $namabulan
+            ]);
         } else {
             $nopilihan =  view('export.absen', [
                 'absens' => Absensi::latest()->where('user_id', $idCurrentUser)->get(),

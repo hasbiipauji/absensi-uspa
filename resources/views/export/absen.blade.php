@@ -1,6 +1,10 @@
 <table>
     <tr>
-        <td>Nama : {{ $absens[0]->user->name }}</td>
+        @if (auth()->user()->role=='admin')        
+        @else
+        <td>Nama : {{ auth()->user()->name }}</td>    
+        @endif
+
     </tr>
     @if( isset($dari) )
         <tr>
@@ -14,6 +18,9 @@
     <thead>
         <tr>
             <th>No</th>
+            @if (auth()->user()->role=='admin')
+            <th>Nama</th>
+            @endif
             <th>Status</th>
             <th>Keterangan</th>
             <th>Alamat absensi</th>
@@ -30,6 +37,15 @@
             <tr>
                 {{-- ini untuk menampilkan nomor --}}
                 <td>{{ strval($result+1) }}</td>
+
+                
+            @if (auth()->user()->role=='admin')
+            
+                {{-- menampilkan nama --}}
+                <td>{{ $hasil->user->name }}</td>
+                
+
+            @endif
 
                 {{-- menampilkan status --}}
                 <td>{{ $hasil->status }}</td>
